@@ -150,7 +150,7 @@
                                     const detectedRollNo = result.text;
                                     scannerMessage.innerText = 'Detected Roll No: ' + detectedRollNo;
                                     rollnoInput.value = detectedRollNo;
-                                    let Profile = 'public/storage/profile/' + detectedRollNo + '.png';
+                                    let Profile = 'storage/profile/' + detectedRollNo + '.png';
                                     codeReader.reset();
                                     Image.src = Profile;
                                     Image.style.display = 'block';

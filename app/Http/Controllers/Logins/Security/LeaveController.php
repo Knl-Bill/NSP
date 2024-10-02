@@ -93,7 +93,7 @@ class LeaveController extends Controller
         if($security)
         {
             $gate = $request->input('gate');
-            $student = DB::table('leavereq_histories')->where('rollno',$rollno)->where('outdate',$outdate)->where('status','Approved')->first();
+            $student = DB::table('leavereq_histories')->where('rollno',$rollno)->where('outdate',$outdate)->where('status','Approved')->orwhere('status','Provisionally Approved')->first();
 
             if(!$student)
             {
