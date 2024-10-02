@@ -15,7 +15,6 @@
             @foreach ($students as $stud)
           const acceptCheckbox{{ $loop->iteration }} = document.getElementById('accept_checkbox_{{ $loop->iteration }}');
           const PacceptCheckbox{{ $loop->iteration }} = document.getElementById('paccept_checkbox_{{ $loop->iteration }}');
-          console.log(PacceptCheckbox{{$loop->iteration}});
           const declineCheckbox{{ $loop->iteration }} = document.getElementById('decline_checkbox_{{ $loop->iteration }}');
           const declineReason{{ $loop->iteration }} = document.getElementById('decline_reason_{{ $loop->iteration }}');
           const submitBtn{{ $loop->iteration }} = document.getElementById('submit_{{ $loop->iteration }}');
@@ -170,6 +169,7 @@
 
 </head>
 <body>
+
     <div class="loading-overlay">
         <div class="spinner"></div>
     </div>

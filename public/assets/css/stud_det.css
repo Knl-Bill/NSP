@@ -1,21 +1,18 @@
-/* Increase specificity */
+/* 
 .accordion-item .accordion-button {
-    padding: 1rem; /* Adjust padding as needed */
+    padding: 1rem; 
 }
 
-/* Use !important */
+
 .accordion-item .accordion-button  {
-    padding: 1rem !important; /* Adjust padding as needed */
-    /*display: flex !important;*/
-    /*background-color: var(--bs-accordion-btn-bg) !important;*/
+    padding: 1rem !important;
 }
 .accordion-body{
-    padding: 1rem !important; /* Adjust padding as needed */
-    /*display: flex !important;*/
+    padding: 1rem !important;
 }
 .accordion-button::after {
     content: '';
     background-repeat: no-repeat;
     background-position: right 1rem center;
     display: inline-block;
-}
+} */

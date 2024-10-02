@@ -223,14 +223,20 @@ class AdminController extends Controller
         if($admin!=NULL)
         {
             $adminEmail = $admin->email;
+            if ($adminEmail) 
+            {
+                $isFaculty=DB::table('leaveext')->where('faculty_email', $adminEmail)->exists();
+                $isWarden=DB::table('leaveext')->where('warden_email', $adminEmail)->exists();
 
+                if ($isFaculty) {
+                    session(['role' => 'faculty']);
+                } elseif ($isWarden) {
+                    session(['role' => 'warden']);
+                }
+            }
             $students = DB::table('leaveext')->where('faculty_email', $adminEmail)
                             ->orWhere('warden_email', $adminEmail)
                             ->get();
-
-            // $students=DB::select($fac_war);
-            // if($students==NULL)
-            //     return back()->with('message','There are no pending leave requests');
             return view('Logins/AdminPages.LeaveExtensionView',['students'=>$students]);
         }
         else
@@ -292,7 +298,7 @@ class AdminController extends Controller
             
                 // Move and rename the new image
                 if ($student->image) {
-                    $newFilename = $rollno . '_' . $leave->outdate . '.' . pathinfo($student->image, PATHINFO_EXTENSION);
+                    $newFilename = $rollno . '_' . $leave->outdate;
                     $newPath = 'leavereq_emails/' . $newFilename;
             
                     // Move and rename the image
