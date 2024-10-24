@@ -5,7 +5,7 @@ return [
     'manifest' => [
         'name' => env('APP_NAME', 'NITPY Student Portal'),
         'short_name' => 'NSP',
-        'start_url' => '/',
+        'start_url' => 'https://nitpy.ac.in/nsp',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
         'display' => 'standalone',
