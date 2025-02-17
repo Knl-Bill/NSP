@@ -1,0 +1,211 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9">
+  <diagram name="Page-1" id="MspXllA74INqQNlmG6YA">
+    <mxGraphModel dx="1518" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="130" width="810" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-2" value="NIT PUDUCHERRY" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="130" width="810" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="200" width="200" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-4" value="Admin Login" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#66FF66,var(--ge-dark-color, #121212));" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-5" value="Student Login" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-6" value="Security Login" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="290" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-7" value="Guest Entry" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="330" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-8" value="Copyright WEBTEAM @ NIT PUDUCHERRY" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="520" width="810" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-9" value="Logo" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="40" y="137.5" width="45" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="200" width="580" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="280" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-12" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="340" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-13" value="Username" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="250" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-14" value="Password" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="310" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-15" value="Forgot Password" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="305" y="360" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-16" value="Some Image" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="260" width="290" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-17" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="570" width="810" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-18" value="NIT PUDUCHERRY" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="570" width="810" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-19" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="640" width="200" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-20" value="Admin Login" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,var(--ge-dark-color, #121212));" vertex="1" parent="1">
+          <mxGeometry x="40" y="650" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-21" value="Student Login" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="690" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-22" value="Security Login" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="730" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-23" value="Guest Entry" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#66FF66,var(--ge-dark-color, #121212));" vertex="1" parent="1">
+          <mxGeometry x="40" y="770" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-24" value="Copyright WEBTEAM @ NIT PUDUCHERRY" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="960" width="810" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-25" value="Logo" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="40" y="577.5" width="45" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-26" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="640" width="580" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-27" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="680" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-28" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="740" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-29" value="Name" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="650" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-30" value="Phone Number" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="710" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-34" value="E-Mail Id" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="760" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-35" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="785" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-36" value="Related to which student (roll no) (optional)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="805" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-37" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="835" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-38" value="Stay at? (optional)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="855" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-39" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="885" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-40" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1050" width="300" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-41" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1050" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-42" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1055" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-43" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1060" width="50" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-44" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1310" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-46" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1370" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-47" value="LOGIN" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="125" y="1450" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-48" value="Username" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1280" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-49" value="Password" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1340" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-50" value="Forgot Password" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="1400" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-51" value="Some Image" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="85" y="1130" width="255" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-52" value="SUBMIT" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="425" y="920" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-53" value="LOGIN" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="390" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-55" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="425" y="1050" width="300" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-56" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="425" y="1050" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-57" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="435" y="1055" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-58" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="665" y="1060" width="50" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-59" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="465" y="1310" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-60" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="465" y="1370" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-61" value="LOGIN" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="1450" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-62" value="Username" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="465" y="1280" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-63" value="Password" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="465" y="1340" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-64" value="Forgot Password" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="525" y="1400" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-66" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="425" y="1110" width="305" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-67" value="Admin Login" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="1120" width="270" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-68" value="Student Login" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="1160" width="270" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-69" value="Security Login" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="1205" width="270" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-70" value="Guest Entry" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="1250" width="270" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-72" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="1230" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-74" value="NSP" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="1060" width="80" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tHfhbfmJ8oVMWYYZbZ25-75" value="NSP" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="535" y="1057.5" width="80" height="45" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
