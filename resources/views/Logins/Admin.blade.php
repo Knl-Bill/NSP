@@ -19,14 +19,54 @@
     </div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid custom-navbar">
-          <img class="logo" src="assets/images/logo.webp" alt="logo">
+            <img class="logo" src="assets/images/logo.webp" alt="logo">
+            <div class="navbar-title-container">
+                <span class="navbar-title">NIT Puducherry Student Portal</span>
+            </div>
         </div>
     </nav>
-    <div class="login-container">
+    <!-- <div class="login-container">
         <div class="image-container">
             <img class="image" src="assets/images/faculty.webp" alt="Sign Up Image" width="800px">
         </div>
         <div class="form-container">
+            <h1 class="heading font">ADMIN LOGIN</h1>
+            <form method="post" action="/AdminLoginVerify" id="signup">
+                @csrf
+                <div class="form-group">
+                    @if (Session::get('success'))
+                        <span class="text-safe" role="alert">
+                            {{ Session::get('success') }}
+                        </span>
+                    @endif
+                    <label for="email" class="font labels">E-Mail</label>
+                    <input class="inputs" type="text" name="email" id="email" placeholder="Enter e-mail" required>
+                    @if($errors->has('email'))
+                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                    @endif
+                </div>
+                <div class="form-group password-container">
+                    <label for="password" class="font labels">Password</label>
+                    <input class="inputs" type="password" id="password" name="password" placeholder="Enter password" required>
+                    <span class="password-toggle-icon"><i class="fas fa-eye"style="padding-top: 30px"></i></span>
+                    @if($errors->has('password'))
+                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <a href="{{ route('reset_pass_admin') }}" class="font loadspin" style="font-size:14px; text-decoration:none;">Forgot Password?</a>
+                </div>
+                <div class="form-group button">
+                    <input class="submit-btn loadspin" type="submit" id="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </div> -->
+    <div class="new-login-container">
+        <div class="new-image-container">
+            <img class="image" src="assets/images/humaaans.webp" alt="Sign Up Image" width="800px">
+        </div>
+        <div class="new-form-container">
             <h1 class="heading font">ADMIN LOGIN</h1>
             <form method="post" action="/AdminLoginVerify" id="signup">
                 @csrf
@@ -77,6 +117,17 @@
             togglePassword.classList.add("fa-eye");
         }
         });
+        window.addEventListener("resize", function () {
+            let title = document.querySelector(".navbar-title");
+            if (window.innerWidth <= 768) {
+                title.textContent = "NSP";
+            } else {
+                title.textContent = "NIT Puducherry Student Portal";
+            }
+        });
+        // Run once on page load
+        window.dispatchEvent(new Event("resize"));
+
     </script>
     
 </body>

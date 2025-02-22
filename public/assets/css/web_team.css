@@ -129,7 +129,7 @@ a:hover {
 }
 .custom-footer {
     display:flex;
-    background-color: #06106d;
+    background: #214A8A;
     position: relative;
     bottom:0;
 }
@@ -138,14 +138,14 @@ a:hover {
     position:fixed;
     bottom:0;
     width:100vw;
-    background-color:#1625AD;
+    background: #214A8A;
     color:#fff;
 }
 .footer-main{
     position:fixed;
     bottom:0;
     width:100vw;
-    background-color:#1625AD;
+    background: #214A8A;
     color:#fff;
 }
 .footer-content{

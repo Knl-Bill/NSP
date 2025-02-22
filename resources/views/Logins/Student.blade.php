@@ -20,14 +20,17 @@
     </div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid custom-navbar">
-          <img class="logo" src="assets/images/logo.webp" alt="logo">
+            <img class="logo" src="assets/images/logo.webp" alt="logo">
+            <div class="navbar-title-container">
+                <span class="navbar-title">NIT Puducherry Student Portal</span>
+            </div>
         </div>
     </nav>
-    <div class="login-container">
-        <div class="image-container">
-            <img src="assets/images/signup.webp" alt="Sign Up Image" class="image" width="800px">
+    <div class="new-login-container">
+        <div class="new-image-container">
+            <img src="assets/images/humaaans.webp" alt="Sign Up Image" class="image" width="800px">
         </div>
-        <div class="form-container"> 
+        <div class="new-form-container"> 
             @if (Session::get('success'))
                 <span class="text-safe" role="alert">
                     {{ Session::get('success') }}
@@ -79,6 +82,16 @@
             togglePassword.classList.add("fa-eye");
         }
         });
+        window.addEventListener("resize", function () {
+            let title = document.querySelector(".navbar-title");
+            if (window.innerWidth <= 768) {
+                title.textContent = "NSP";
+            } else {
+                title.textContent = "NIT Puducherry Student Portal";
+            }
+        });
+        // Run once on page load
+        window.dispatchEvent(new Event("resize"));
     </script>
     
     <script src="assets/js/loading.js"></script>
