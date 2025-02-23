@@ -180,7 +180,7 @@ body {
     margin-top: 100px;
     margin-left: 20px;
 }
-/* .item {
+.item {
     text-align: center;
     margin: 20px;
     button{
@@ -219,7 +219,7 @@ body {
         height: 200px;
         max-width: 100%;
     }
-} */
+}
 
 /* Login and SignUp */
 
