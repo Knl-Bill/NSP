@@ -19,7 +19,6 @@ use App\Http\Controllers\Logins\Security\OutingController;
 use App\Http\Controllers\Logins\Security\GlhOutingController;
 use App\Http\Controllers\Logins\AdminLogin;
 use App\Http\Controllers\Logins\Security\LeaveController;
-use App\Http\Controllers\GuestEntry;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,12 +55,6 @@ Route::get('student-signup.page/{token}/{rollno}/{name}/{email}', [StudentContro
 Route::post('/signup/{rollno}/{email}/{name}', [StudentController::class, 'insert'])->name('signup');
 Route::get('/WebTeam', [StudentController::class,'WebTeam'])->name('WebTeam');
 Route::get('/StudentSignUp', [StudentController::class,'StudentSignUp'])->name('StudentSignUp');
-
-// Guest Register
-Route::get('/GuestEntry', [GuestEntry::class, 'GuestEntry'])->name('GuestEntry');
-Route::get('/GuestRegister', [GuestEntry::class, 'GuestRegister'])->name('GuestRegister');
-Route::post('/InsertGuest', [GuestEntry::class, 'InsertGuest'])->name('InsertGuest');
-Route::post('/CloseGuestEntry/{id}', [GuestEntry::class, 'CloseGuestEntry'])->name('CloseGuestEntry');
 
 //Forgot Password
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget-password');
