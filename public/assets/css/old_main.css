@@ -16,19 +16,8 @@
     margin: 0;
     box-sizing: border-box;
 }
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background: #F7F8FA;
-}
 .custom-navbar {
-    /* background-color: #1625AD; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #002147, #005099 50%, #002147);
-    color: white;
+    background-color: #1625AD;
     padding: 5px 15px;
     margin: 0;
     top: 0;
@@ -36,16 +25,6 @@ body {
     z-index: 1000;
     width: 100%;
     position: fixed;
-}
-.navbar-title-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.navbar-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
 }
 .custom-nav-items {
     margin-left: auto;
@@ -81,90 +60,6 @@ body {
 .logout-btn:hover {
     background-color: rgb(231, 18, 18);
 }
-
-/* -------------NEW */
-.main-container {
-    display: flex;
-    height: calc(100vh);
-    margin-top: 70px;
-    margin-bottom: 30px;
-    gap: 20px;
-    padding: 20px 100px;
-    overflow: hidden; /* Ensure only internal sections scroll */
-}
-.box-1 {
-    width: 30%;
-    background: white;
-    padding: 40px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.big-btn {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1.5px solid black;
-    border-radius: 5px;
-    background: white;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.big-btn:hover {
-    background: #214A8A;
-    color: white;
-}
-/* Box-2 (Guide Section) */
-.box-2 {
-    top: 0%;
-    width: 100%;
-    background: white;
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; /* Stack content vertically */
-    gap: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.12);
-    min-height: 100%;
-    max-height: 100%; /* Prevent overflow */
-    overflow: auto; /* Allow scrolling inside .box-2 */
-}
-.box-1, .box-2 {
-    height: 100%;
-}
-/* Guide Container */
-.guide-container {
-    width: 100%;
-    max-width: 800px; /* Restrict width for better readability */
-}
-
-/* Guide Section Styling */
-.guide-section {
-    margin-bottom: 20px;
-}
-.guide-container h3, .guide-section h4 {
-    text-align: left;
-}
-.guide-section h4 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.guide-section p {
-    font-size: 1rem;
-    text-align: justify; /* Justify the text */
-    line-height: 1.6; /* Improve readability */
-    color: #333;
-}
-
-/* ------------------- */
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -181,7 +76,7 @@ body {
     margin-top: 100px;
     margin-left: 20px;
 }
-/* .item {
+.item {
     text-align: center;
     margin: 20px;
     button{
@@ -220,7 +115,7 @@ body {
         height: 200px;
         max-width: 100%;
     }
-} */
+}
 
 /* Login and SignUp */
 
@@ -238,15 +133,15 @@ body {
     text-align: center;
     font-size: 36px;
 }
-/* .image-container {
+.image-container {
     margin-right: 50px;
-    height: 100vh;
-    overflow: hidden;
-} */
+    /* height: 100vh;
+    overflow: hidden; */
+}
 .image {
     width: 700px;
     height: auto;
-} */
+}
 .form-container {
     display: flex;
     flex-direction: column;
@@ -272,65 +167,32 @@ body {
     justify-content: center;
 }
 .submit-btn {
-    background-color: #214A8A;
+    background-color: #1625AD;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
 .submit-btn:hover {
-    background-color: #173A6B;
+    background-color: #172add;
 }
 
-/* @media (max-width: 1200px) {
+@media (max-width: 1200px) {
     .image {
         width: 600px;
     }
-} */
+}
 
-/* @media (max-width: 992px) {
+@media (max-width: 992px) {
     .image-container {
         margin-right: 30px;
     }
     .image {
         width: 500px;
     }
-} */
-
-/* On Tablets & Mobiles, Ensure Box-2 Covers Full Content */
-@media (max-width: 1024px) {
-    .main-container {
-        flex-direction: column; /* Stack items in a column */
-        align-items: center; /* Center align */
-        padding: 15px 150px;
-        margin-top: 80px;
-        margin-bottom: 40px;
-        height: auto; /* Allow the height to adjust */
-    }
-
-    .box-1, .box-2 {
-        width: 100%; /* Make both boxes take full width */
-        text-align: center;
-    }
-
-    .box-2 {
-        overflow-y: auto; /* Enable scrolling if needed */
-        padding: 20px;
-    }
 }
 
-
 @media (max-width: 768px) {
-    .main-container {
-        padding: 10px 150px;
-        margin-top: 80px;
-        margin-bottom: 40px;
-    }
-
-    .box-2 {
-        overflow-y: auto; /* Ensure scrolling */
-        padding: 20px 20px;
-    }
     .login-container {
         flex-direction: column;
         align-items: center;
@@ -352,11 +214,6 @@ body {
 }
 
 @media (max-width: 576px) {
-    .main-container {
-        padding: 50px 20px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
     .image {
         width: 300px;
     }

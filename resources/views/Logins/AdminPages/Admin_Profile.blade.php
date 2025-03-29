@@ -154,8 +154,8 @@
                 <!--        @csrf-->
                 <!--        <div class="form-group">-->
                             <!-- <label class="labels" for="phoneno" class="font">Roll Number</label>
-                <!--            <input class="disabled" disabled type="text" name="rollno" id="rollno" placeholder="Enter Your Roll Number" required>-->
-                <!--            <input class="disabled" hidden type="text" name="rollno" id="rollno" placeholder="rollno" required> -->-->
+                            <input class="disabled" disabled type="text" name="rollno" id="rollno" placeholder="Enter Your Roll Number" required>-->
+                <!--            <input class="disabled" hidden type="text" name="rollno" id="rollno" placeholder="rollno" required> -->
                 <!--            @if($errors->has('rollno'))-->
                 <!--                <span class="text-danger">{{ $errors->first('rollno') }}</span>-->
                 <!--            @endif-->

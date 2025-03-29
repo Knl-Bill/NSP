@@ -29,7 +29,7 @@
             <button id="AdminId" class="big-btn loadspin">Faculty Login</button>
             <button id="StudentId" class="big-btn loadspin">Student Login</button>
             <button id="SecurityId" class="big-btn loadspin">Security Login</button>
-            <button id="GuestId" class="big-btn loadspin">Guest Entry</button>
+            <!-- <button id="GuestId" class="big-btn loadspin">Guest Entry</button> -->
         </div>
         <div class="box-2">
             <div class="guide-container">
@@ -52,12 +52,12 @@
                         Security personnel can log in to verify student exits, manage guest entries, and ensure campus security compliance. The system helps maintain a structured record of movements within the institution.
                     </p>
                 </div>
-                <div class="guide-section">
+                <!-- <div class="guide-section">
                     <h4>Guest Entry</h4>
                     <p>
                         Guests can register their entry details before accessing the premises. This feature allows for better visitor tracking, ensuring a secure and well-monitored environment.
                     </p>
-                </div>
+                </div> -->
             </div>          
         </div>
     </div>

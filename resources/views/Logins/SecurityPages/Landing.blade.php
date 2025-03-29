@@ -50,7 +50,7 @@
         </div>
         <h1 class="heading font">DASHBOARD</h1>
     </div>
-    <div class="dashboard container">
+    <!-- <div class="dashboard container">
         <div class="item Outing">
             <img src="assets/images/outing.png" alt="Leave" height="250px">
             <button class="submit-btn loadspin" id="OutingId">Outing</button>
@@ -62,6 +62,48 @@
         <div class="item">
             <img src="assets/images/leave_1.webp" alt="Leave" height="250px">
             <button class="submit-btn loadspin" id="LeaveId">Leave</button>
+        </div>
+    </div> -->
+
+    <div class="main-container">
+        <div class="box-1">
+            <button id="LeaveId" class="big-btn loadspin">
+                Leaves
+            </button>
+            <button id="OutingId" class="big-btn loadspin">
+                Outings
+            </button>
+            <button id="GirlsId" class="big-btn loadspin">
+                In-campus Outings
+            </button>
+            <button id="GuestEntry" class="big-btn">
+                Guest Entry
+            </button>
+        </div>
+        <div class="box-2">
+            <div class="guide-container">
+                <h3>Guide</h3>
+                <div class="guide-section">
+                    <h4>Leaves</h4>
+                    <p>
+                        <div class="tamil" style="color:red">
+                            மாணவர் காட்டும் விடுப்புக் கோரிக்கை வார்டன் மற்றும் ஆசிரிய ஆலோசகரால் அங்கீகரிக்கப்பட்டதா அல்லது நியமிக்கப்பட்ட வார்டனால் தற்காலிகமாக அங்கீகரிக்கப்பட்டதா என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள்.
+                        </div>
+                        <div class="enlish">
+                            Make sure that the leave request that the student is showing is approved by both warden and faculty advisor or provisionally approved by the designated warden.
+                        </div>
+                        <hr>
+
+                        <div class="tamil" style="color:red">
+                            மாணவரின் விடுப்பு படிவத்தில் உருவாக்கப்பட்ட பார்கோடை ஸ்கேன் செய்து அல்லது கையேடு படிவத்தில் தேவையான விவரங்களை உள்ளிடுவதன் மூலம் பதிவு செய்யப்பட வேண்டிய இலைகள்
+                        </div>
+                        <div class="enlish">
+                            Leaves to be registered by either scanning the barcode generated on the leave form of the student or by entering the required details in the manual form
+                        </div>
+                        <hr>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -84,6 +126,9 @@
         document.getElementById('profile').addEventListener('click', function() {
             window.location.href = '{{route('SecurityProfile')}}';
         });
+        document.getElementById('GuestEntry').addEventListener('click', function() {
+            window.location.href = '{{route('GuestEntry')}}';
+        }) 
     </script>
     <script src="assets/js/SecurityLogout.js"></script>
     <script src="assets/js/loading.js"></script>

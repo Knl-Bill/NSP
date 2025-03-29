@@ -7,6 +7,17 @@
     <link rel="icon" type="image/webp" href="assets/images/logo.webp">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('pageshow', function(event) {
+
+            if (event.persisted) {
+                window.location.reload();
+            }
+        });
+        let user = "{{Session::has('security')}}";
+        if(!user)
+            window.location.href = '/';
+    </script>
 </head>
 <body>
     <div class="container mt-5 pt-5">
