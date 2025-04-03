@@ -19,7 +19,7 @@ use App\Http\Controllers\Logins\Security\OutingController;
 use App\Http\Controllers\Logins\Security\GlhOutingController;
 use App\Http\Controllers\Logins\AdminLogin;
 use App\Http\Controllers\Logins\Security\LeaveController;
-
+use App\Http\Controllers\ClassroomFacultyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +35,13 @@ Route::get('/', function () {
     return view('Logins.main');
 
 });
+
+//Classroom- Faculty Side
+Route::get('FacultyClassroom', [ClassroomFacultyController::class, 'index'])->name('FacultyClassroom');
+Route::post('createClassroom', [ClassroomFacultyController::class, 'store'])->name('createClassroom');
+Route::get('/classroom/{class_code}', [ClassroomFacultyController::class, 'getStudents']);
+Route::post('/classroom/{class_code}/students/{roll_number}/delete', [ClassroomFacultyController::class, 'deleteStudent'])->name('student.delete');
+
 
 //Reset Password for Security
 Route::get('reset_pass_sec', [ForgotPasswordSecurityController::class, 'showForgetPasswordForm'])->name('reset_pass_sec');

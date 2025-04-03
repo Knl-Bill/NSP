@@ -145,33 +145,6 @@
                         </div>
                     </form>
                 </div>            
-
-                <!--<div class="form-container">-->
-
-                    <!-- Update Email -->
-                <!--    <h3 class="font1">E-Mail Address</h3>-->
-                <!--    <form method="post" action="adm_change-email" id="signup">-->
-                <!--        @csrf-->
-                <!--        <div class="form-group">-->
-                            <!-- <label class="labels" for="phoneno" class="font">Roll Number</label>
-                <!--            <input class="disabled" disabled type="text" name="rollno" id="rollno" placeholder="Enter Your Roll Number" required>-->
-                <!--            <input class="disabled" hidden type="text" name="rollno" id="rollno" placeholder="rollno" required> -->-->
-                <!--            @if($errors->has('rollno'))-->
-                <!--                <span class="text-danger">{{ $errors->first('rollno') }}</span>-->
-                <!--            @endif-->
-                <!--        </div>-->
-                <!--        <div class="form-group">-->
-                <!--            <label class="labels" for="phoneno" class="font">New E-Mail Address</label>-->
-                <!--            <input class="inputs" type="text" name="new_email" id="email" placeholder="Enter New E-Mail Address" required>-->
-                <!--            @if($errors->has('new_email'))-->
-                <!--                <span class="text-danger">{{ $errors->first('new_email') }}</span>-->
-                <!--            @endif-->
-                <!--        </div>-->
-                <!--        <div class="form-group button">-->
-                <!--            <input class="submit-btn" type="submit" id="submit" value="Submit">-->
-                <!--        </div>-->
-                <!--    </form>-->
-                <!--</div>-->
             </div>
         </div>
         
