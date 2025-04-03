@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/login_signup.css">
+    <link rel="stylesheet" href="assets/css/LeaveRequest.css">
     <link rel="stylesheet" href="assets/css/loading.css">
     <script>
         window.addEventListener('pageshow', function(event) {
@@ -29,6 +29,9 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid custom-navbar">
           <img class="logo" src="assets/images/logo.webp" alt="logo">
+          <div class="navbar-title-container">
+                <span class="navbar-title">NIT Puducherry Student Portal</span>
+          </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -47,15 +50,16 @@
           </div>
         </div>
     </nav>
-    <div class="login-container">
-        <div class="image-container">
-            <img src="assets/images/leave.webp" alt="Leave Image" class="image" width="800px">
+    <div class="new-login-container">
+        <div class="new-image-container">
+            <!-- <img src="assets/images/leave.webp" alt="Leave Image" class="image" width="800px"> -->
+            <img src="assets/images/humaaans.webp" alt="Leave Image" class="image" width="800px">
         </div>
-        <div class="form-container">
-            <div class="form-group button">
+        <div class="new-form-container">
+            <div class="form-group form-button">
                 <button class="form-group button submit-btn" id="status">See your Leave Status</button>
             </div>
-            <div class="form-group button">
+            <div class="form-group form-button">
                 <button class="form-group button submit-btn" id="leavehistory">Leave History</button>
             </div>
             <h1 class="heading font">LEAVE FORM</h1>
@@ -204,6 +208,17 @@
             var minDate = year + '-' + month + '-' + day;
             outdate.min = minDate;
         }
+    </script>
+    <script>
+        window.addEventListener("resize", function () {
+            let title = document.querySelector(".navbar-title");
+            if (window.innerWidth <= 768) {
+                title.textContent = "NSP";
+            } else {
+                title.textContent = "NIT Puducherry Student Portal";
+            }
+        });
+        window.dispatchEvent(new Event("resize"));
     </script>
     <script src="assets/js/loading.js"></script>
 </body>

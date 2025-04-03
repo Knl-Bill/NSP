@@ -8,7 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/web_team.css"> 
+    <!-- <link rel="stylesheet" href="assets/css/web_team.css">  -->
+    <link rel="stylesheet" href="assets/css/WebTeam.css">
     
 </head>
   <body>
@@ -16,6 +17,9 @@
         <div class="container-fluid custom-navbar">
           <img class="logo" src="assets/images/logo.webp" alt="logo">
           <!-- <a class="navbar-brand custom-brand" href="#">NIT Puducherry</a> -->
+          <div class="navbar-title-container">
+                <span class="navbar-title">NIT Puducherry Student Portal</span>
+          </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -29,7 +33,7 @@
         </div>
     </nav>
     <div class="team-container">
-        <h1 class="heading font">WEB DEVELOPMENT TEAM</h1>
+        <h1 class="heading font">Web Development Team</h1>
         <div class="team-members">
           <div class="team-member">
             <img src="assets/images/kunal.webp" alt="Kunal Billade" />
@@ -56,7 +60,7 @@
     </div>
 
     <div class="acknowledgement">
-        <h1 class="ack-heading heading font">ACKNOWLEDGEMENTS</h1>
+        <h1 class="ack-heading heading font">Acknowledgements</h1>
         <p>
             The Web Team is proud to present our latest innovation aimed at streamlining the student experience at NIT Puducherry. Our team worked diligently to automate the leave approval system, transforming what was once a labor-intensive and time-consuming paper-based process. Previously, students had to obtain physical signatures from their faculty advisors and wardens, often leading to delays and inefficiencies. With the new system in place, leave requests can now be processed quickly and efficiently online, saving valuable time for both students and faculties. In addition, the outing system has also undergone a significant transformation. The old method relied on a book register to record outings, which made it difficult for students to start an outing from one gate and end it at another. Our automated system eliminates this hassle by using barcodes and digital tracking, ensuring a seamless experience for all students. This innovation not only enhances security and accountability but also provides greater flexibility for students. We extend our heartfelt thanks to everyone who contributed to this project and made this vision a reality. The support and collaboration of our faculty, staff, and students have been instrumental in driving this initiative forward. We remain committed to further enhancing the student experience through technology and innovation.
         </p>
@@ -71,6 +75,15 @@
         document.getElementById('home').addEventListener('click', function() {
             window.location.href = '/';
         });
+        window.addEventListener("resize", function () {
+            let title = document.querySelector(".navbar-title");
+            if (window.innerWidth <= 768) {
+                title.textContent = "NSP";
+            } else {
+                title.textContent = "NIT Puducherry Student Portal";
+            }
+        });
+        window.dispatchEvent(new Event("resize"));
     </script>
   </body>
 </html>

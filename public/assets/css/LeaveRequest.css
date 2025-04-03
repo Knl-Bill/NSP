@@ -1,0 +1,318 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@264&display=swap'); */
+
+.font {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #F7F8FA;
+}
+.custom-navbar {
+    /* background-color: #1625AD; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #002147, #005099 50%, #002147);
+    color: white;
+    padding: 5px 15px;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    position: fixed;
+}
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+.navbar-toggler-icon {
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+.navbar-title-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.navbar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.custom-nav-items {
+    margin-left: auto;
+    font-size: 25px;
+}
+.logo {
+    width: 80px;
+    height: auto;
+}
+.home-btn, .profile-btn, .logout-btn {
+    color: white;
+    cursor: pointer;
+}
+.home-btn:hover, .profile-btn:hover, .logout-btn:hover {
+    color: white;
+}
+.logout-btn {
+    background-color: rgb(210, 37, 37);
+    padding: 5px;
+    margin-top: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.logout-btn:hover {
+    background-color: rgb(231, 18, 18);
+}
+
+.heading {
+    color: #1625AD;
+    text-align: center;
+    font-size: 24px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.new-login-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    align-items: stretch; /* Stretch to fill the height */
+    width: 90%; /* Leaves equal margin on left and right */
+    max-width: 1000px; /* Prevents it from becoming too wide */
+    min-height: 80vh; /* Ensures good height coverage */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.12);
+    margin: 100px auto 10px; /* Leaves space for navbar & small bottom margin */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling on the main container */
+}
+
+.new-image-container {
+    width: 50%; /* Fixed width for the image container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white; /* Light gray background */
+    padding: 20px;
+}
+
+.new-form-scroll-container {
+    width: 50%; /* Fixed width for the form container */
+    height: 100%; /* Full height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 20px; /* Add some padding */
+}
+
+.new-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the start */
+    align-items: stretch; /* Stretch to fill the width */
+    text-align: left;
+    overflow-y: auto;
+    padding: 40px;
+}
+
+.new-image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.new-form-group {
+    margin-bottom: 10px;
+}
+.labels {
+    display: block;
+    margin-bottom: 5px;
+}
+.inputs {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: #e3f1fc;
+}
+
+/* Form styles */
+.new-form-container .heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.new-form-container form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.new-form-container .form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.new-form-container .form-button {
+    margin-bottom: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #214A8A;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background: #173A6B;
+}
+/* --------------------- */
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .new-login-container {
+        width: 95%; /* Slightly reduce width */
+        margin: 80px auto 10px; /* Adjust top margin */
+    }
+    .new-form-container {
+        padding: 30px;
+    }
+}
+
+/* Mobile screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .new-login-container {
+        flex-direction: column; /* Stack image & form */
+        width: 90%; /* Reduce width */
+        padding: 40px;
+        margin: 80px auto 10px; /* Ensures equal margins on left & right */
+    }
+    .new-image-container, .new-form-container {
+        width: 100%; /* Full width */
+        padding: 10px 20px;
+    }
+}
+
+/* Small mobile screens (max-width: 576px) */
+@media (max-width: 576px) {
+    .new-login-container {
+        width: 90%;
+        margin: 80px auto 10px; /* Ensures equal margins on left & right */
+    }
+    .new-form-container {
+        padding: 20px;
+    }
+    .submit-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-toggle-icon i {
+    font-size: 18px;
+    line-height: 1;
+    color: #1625AD;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Alert and Errors */
+
+.alertalert-danger{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    background: #f7f7f7;
+    color: #000000;
+    padding: 20px;
+}
+.error{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    
+}
+.mssg{
+    border: 1px solid #bf1515;
+    border-radius: 4px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+.err_p{
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 13px;
+}
+.error_img{
+    height:20px; 
+    width:20px;
+}
+.text-danger{
+    color: red;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+}
+.text-safe{
+    color: rgb(76, 220, 37);
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+}
+.disabled{
+    background-color: rgb(224, 224, 224);
+}
+.req{
+    color:red;
+}
+#LeaveId{
+    padding-right:20px;
+}
+.leave_count {
+    display: inline-block;   /* Make the element inline-block to prevent it from expanding */
+    /*padding: 5px;           */
+    border-radius: 50%;      /* Make it a circle */
+    background-color: red;   /* Set background color to red */
+    color: white;            /* Text color inside the circle */
+    text-align: center;      /* Center align text */
+    font-size: 1em;          /* Font size, can be adjusted or made responsive */
+    width: 25px;             /* Fixed width, can be adjusted */
+    height: 25px;            /* Fixed height, can be adjusted */
+    line-height: 20px;       /* Center text vertically */
+    max-width: 100%;         /* Ensure the circle doesn't exceed its container */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}

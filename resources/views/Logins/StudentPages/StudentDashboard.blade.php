@@ -8,7 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/main.css"> 
+    <!-- <link rel="stylesheet" href="assets/css/main.css">  -->
+    <link rel="stylesheet" href="assets/css/StudentDashboard.css">    
     <link rel="stylesheet" href="assets/css/loading.css">
     
     <script>
@@ -31,6 +32,9 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid custom-navbar">
           <img class="logo" src="assets/images/logo.webp" alt="logo">
+          <div class="navbar-title-container">
+                <span class="navbar-title">NIT Puducherry Student Portal</span>
+          </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -50,11 +54,23 @@
         <div class="user" style="font-size: 24px;">
         </div>
         <h1 class="heading font">DASHBOARD</h1>
-        <div class="status">
-            <a class="leave-status loadspin" href="{{ route('leavereqshist') }}">Leave Requests History</a>
-        </div>
+        <!-- <div class="status">
+            <a class="leave-status loadspin dash-btn" href="{{ route('leavereqshist') }}">Leave Requests History</a>
+        </div> -->
     </div>
-    <div class="dashboard container">
+
+    <div class="dash-container">
+        <div class="status">
+            <a class="leave-status loadspin dash-btn" href="{{ route('leavereqshist') }}">Leave Requests History</a>
+        </div>
+        <button id="Leave" class="loadspin dash-btn">Leave Requests</button>
+        <button id="Outing" class="loadspin dash-btn">Outing History</button>
+        @if(session('student') && session('student')->gender === 'Female')
+            <button id="GLH" class="loadspin dash-btn">GLH Register</button>
+        @endif
+    </div>
+
+    <!-- <div class="dashboard container">
         <div class="item">
             <img src="assets/images/leave_1.webp" alt="Leave" height="250px">
             <button id="Leave" class="loadspin">Leave Requests</button>
@@ -69,7 +85,7 @@
             <button id="GLH" class="loadspin">GLH Register</button>
         </div>
         @endif
-    </div>
+    </div> -->
     <script>
         fetch('/StudentSession').then(response => response.text()).then(data => {
             document.querySelector('.user').innerHTML = '<span class="welcome">Welcome</span>, ' + data;
@@ -89,6 +105,17 @@
         document.getElementById('GLH').addEventListener('click', function() {
             window.location.href = '{{route('GetGLHOutings')}}';
         });
+    </script>
+    <script>
+        window.addEventListener("resize", function () {
+            let title = document.querySelector(".navbar-title");
+            if (window.innerWidth <= 768) {
+                title.textContent = "NSP";
+            } else {
+                title.textContent = "NIT Puducherry Student Portal";
+            }
+        });
+        window.dispatchEvent(new Event("resize"));
     </script>
     <script src="assets/js/StudentLogout.js"></script>
     <script src="assets/js/loading.js"></script>

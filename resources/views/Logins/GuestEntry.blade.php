@@ -7,7 +7,8 @@
     <link rel="icon" type="image/webp" href="assets/images/logo.webp">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="assets/css/GuestEntry.css">
+    <!-- <link rel="stylesheet" href="assets/css/GuestEntry.css"> -->
+    <link rel="stylesheet" href="assets/css/NewGuestEntry.css">
     <link rel="stylesheet" href="assets/css/loading.css">
     <script src="assets/js/loading.js"></script>
     <script>
@@ -36,16 +37,19 @@
 
     <div class="page-container">
         <!-- Fixed Guest Register Button position -->
-        <div class="guest-register-btn">
+        <!-- <div class="guest-register-btn">
             <a href="{{ route('GuestRegister') }}" class="btn btn-secondary">Guest Register</a>
-        </div>
+        </div> -->
         
-        <div class="content-container">
+        <!-- <div class="content-container"> -->
             <div class="image-container">
-                <img class="image" src="assets/images/humaaans.webp" alt="Sign Up Image">
+                <img src="assets/images/humaaans.webp" alt="Sign Up Image" class="image" width="800px">
             </div>
             
             <div class="form-container">
+                <div class="guest-register-btn form-group form-button">
+                    <a href="{{ route('GuestRegister') }}" class="submit-btn btn btn-secondary">Guest Register</a>
+                </div>
                 <h1 class="heading font">GUEST ENTRY FORM</h1>
 
                 <!-- Success and Error Messages -->
@@ -113,7 +117,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 
     <script>
