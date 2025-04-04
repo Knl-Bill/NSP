@@ -19,8 +19,7 @@ use App\Http\Controllers\Logins\Security\OutingController;
 use App\Http\Controllers\Logins\Security\GlhOutingController;
 use App\Http\Controllers\Logins\AdminLogin;
 use App\Http\Controllers\Logins\Security\LeaveController;
-use App\Http\Controllers\GuestEntry;
-
+use App\Http\Controllers\ClassroomFacultyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +35,13 @@ Route::get('/', function () {
     return view('Logins.main');
 
 });
+
+//Classroom- Faculty Side
+Route::get('FacultyClassroom', [ClassroomFacultyController::class, 'index'])->name('FacultyClassroom');
+Route::post('createClassroom', [ClassroomFacultyController::class, 'store'])->name('createClassroom');
+Route::get('/classroom/{class_code}', [ClassroomFacultyController::class, 'getStudents']);
+Route::post('/classroom/{class_code}/students/{roll_number}/delete', [ClassroomFacultyController::class, 'deleteStudent'])->name('student.delete');
+
 
 //Reset Password for Security
 Route::get('reset_pass_sec', [ForgotPasswordSecurityController::class, 'showForgetPasswordForm'])->name('reset_pass_sec');
@@ -56,12 +62,6 @@ Route::get('student-signup.page/{token}/{rollno}/{name}/{email}', [StudentContro
 Route::post('/signup/{rollno}/{email}/{name}', [StudentController::class, 'insert'])->name('signup');
 Route::get('/WebTeam', [StudentController::class,'WebTeam'])->name('WebTeam');
 Route::get('/StudentSignUp', [StudentController::class,'StudentSignUp'])->name('StudentSignUp');
-
-// Guest Register
-Route::get('/GuestEntry', [GuestEntry::class, 'GuestEntry'])->name('GuestEntry');
-Route::get('/GuestRegister', [GuestEntry::class, 'GuestRegister'])->name('GuestRegister');
-Route::post('/InsertGuest', [GuestEntry::class, 'InsertGuest'])->name('InsertGuest');
-Route::post('/CloseGuestEntry/{id}', [GuestEntry::class, 'CloseGuestEntry'])->name('CloseGuestEntry');
 
 //Forgot Password
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget-password');

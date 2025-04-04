@@ -76,7 +76,7 @@
         </div>
         <div class="item">
             <img src="assets/images/faculty.webp" alt="Academics" height="250px">
-            <button id="AcademicsId">Academic Details</button>
+            <button id="Academics">Academic Details</button>
         </div>
     </div> -->
     <script>
@@ -95,6 +95,11 @@
         document.getElementById('profile').addEventListener('click', function() {
             window.location.href = '{{route('AdminProfile')}}';
         });
+
+        document.getElementById('Academics').addEventListener('click', function() {
+        window.location.href = '{{ route('FacultyClassroom') }}';
+        });
+
     </script>
     <script>
         window.addEventListener("resize", function () {
