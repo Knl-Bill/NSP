@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academics - Faculty</title>
     <link rel="icon" type="image/webp" href="{{ asset('assets/images/logo.webp') }}">
-    
+
+    <link rel="icon" type="image/webp" href="{{ asset('assets/images/logo.webp') }}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+
+    <!-- <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/loading.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/faculty_classroom.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('assets/css/faculty_classroom.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('assets/css/FacultyClassroom.css') }}">
+
 </head>
 <body>
     <div class="loading-overlay">
@@ -23,6 +27,9 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid custom-navbar">
             <img class="logo" src="{{ asset('assets/images/logo.webp') }}" alt="logo">
+            <div class="navbar-title-container">
+                <span class="navbar-title">NIT Puducherry Student Portal</span>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,30 +47,52 @@
     </nav>
 
     <div class="d-flex">
-        <div class="bg-dark text-white p-3 sidebar">
-            <h4>Academics</h4>
+        <!-- <div class="left-container bg-dark text-white p-3 sidebar"> -->
+        <div class="left-container">
+            <!-- <h4>Academics</h4> -->
+            <div class="dashboard-text">
+                <div class="user" style="font-size: 16px; padding: 20px">
+            
+                </div>
+            </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link text-white active" href="#">Create Classroom</a>
+                    <a class="nav-link active" href="#">
+                        <i class="bi bi-grid-fill me-2"></i>Classrooms
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Attendance</a>
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-calendar-check me-2"></i>Attendance
+                    </a>
                 </li>
             </ul>
         </div>
 
-        <div class="p-4 flex-grow-1">
-            <div class="d-flex justify-content-between align-items-center">
+        <!-- <div class="right-container p-4 flex-grow-1"> -->
+        <div class="right-container">
+            <!-- <div class="d-flex justify-content-between align-items-center">
                 <h2>Classrooms</h2>
                 <button class="btn btn-primary" onclick="openModal()">Create New</button>
+            </div> -->
+            <div class="create-btn-container">
+                <button class="btn btn-create" onclick="openModal()">
+                    <i class="bi bi-plus-circle me-1"></i> Create New
+                </button>
             </div>
+            
+            <h4 class="mb-4">Classrooms</h4>
 
-            <div class="mt-4" id="classroomList">
+            <div class=" classroom-grid mt-4" id="classroomList">
                 @if ($classrooms->isEmpty())
-                    <p class="text-muted">No classrooms created yet.</p>
+                    <!-- <p class="text-muted">No classrooms created yet.</p> -->
+                    <div class="col-12 text-center p-5">
+                        <!-- <i class="bi bi-inbox fs-1 text-muted"></i> -->
+                        <p class="text-muted mt-3">No classrooms created yet.</p>
+                    </div>
                 @else
                     @foreach ($classrooms as $classroom)
-                        <div class="card p-3 mb-2">
+                        <!-- <div class="card p-3 mb-2">
                             <h5>{{ $classroom->programme_name }}</h5>
                             <p><strong>Class Code:</strong> {{ $classroom->class_code }}</p>
                             <p><strong>Description:</strong> {{ $classroom->description ?: 'No description provided' }}</p>
@@ -71,6 +100,30 @@
                             <button class="btn btn-primary btn-sm" onclick="fetchStudents('{{ $classroom->class_code }}')">
                                 View Students
                             </button>
+                        </div> -->
+                        <div class="classroom-card">
+                            <!-- <div class="card-header">
+                                <h5 class="mb-0">{{ $classroom->programme_name }}</h5>
+                                <small>{{ $classroom->class_code }}</small>
+                            </div> -->
+                            <div class="card-header">
+                                <div class="card-header-content">
+                                    <h5 class="mb-0">{{ $classroom->programme_name }}</h5>
+                                    <small>{{ $classroom->class_code }}</small>
+                                </div>
+                                <button class="delete-btn" onclick="deleteClassroom('{{ $classroom->class_code }}')">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Description:</strong> {{ $classroom->description ?: 'No description provided' }}</p>
+                                <p><strong>Joining Code:</strong> <span class="badge bg-info">{{ $classroom->joining_code }}</span></p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn btn-sm btn-outline-primary" onclick="fetchStudents('{{ $classroom->class_code }}')">
+                                    <i class="bi bi-people-fill me-1"></i> View Students
+                                </button>
+                            </div>
                         </div>
                     @endforeach
                 @endif
@@ -100,7 +153,7 @@
                             <label class="form-label">Brief Description</label>
                             <textarea name="description" class="form-control" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-primary w-100">Create</button>
                     </form>
                 </div>
             </div>
@@ -148,7 +201,12 @@
             </div>
         </div>
     </div>
-
+    <script>
+        fetch('/AdminSession').then(response => response.text()).then(data => {
+                // Update the user name in the HTML
+                document.querySelector('.user').innerHTML = '<span class="welcome">Welcome</span>, ' + data;
+        });
+    </script>
     <script>
         function copyMessage() {
             let message = document.getElementById("successMessage").innerText;
@@ -228,7 +286,17 @@
             });
         }
     </script>
-
+    <script>
+        window.addEventListener("resize", function () {
+            let title = document.querySelector(".navbar-title");
+            if (window.innerWidth <= 768) {
+                title.textContent = "NSP";
+            } else {
+                title.textContent = "NIT Puducherry Student Portal";
+            }
+        });
+        window.dispatchEvent(new Event("resize"));
+    </script>
 
 </body>
 </html>
