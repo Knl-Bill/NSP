@@ -257,6 +257,13 @@ body {
     filter: brightness(0) invert(1);
 }
 
+.table-heading {
+    th {
+        background: linear-gradient(to right, #002147, #005099 50%, #002147);
+        color: white !important;
+    }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 992px) {
     .left-container {

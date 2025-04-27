@@ -58,7 +58,7 @@
                 <h4 class="mt-4">Marks</h4>
                 <table class="table table-bordered mt-2">
                     <thead>
-                        <tr>
+                        <tr class="table-heading">
                             <th>CT1 Marks</th>
                             <th>CT2 Marks</th>
                             <th>Assignment Marks</th>
