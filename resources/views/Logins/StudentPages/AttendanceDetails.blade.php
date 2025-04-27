@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="{{ asset('assets/css/StudentAttendance.css') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <script>
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        });
+        let user = "{{Session::has('student')}}";
+        if (!user) {
+            window.location.href = '/';
+        }
+    </script>
 </head>
 <body>
     <!-- Navigation Bar (copied from StudentClassroom.blade.php) -->

@@ -12,9 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/loading.css') }}">
-    <!-- <link rel="stylesheet" href="{{ asset('assets/css/faculty_classroom.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/FacultyClassroom.css') }}">
 
 </head>
@@ -47,7 +45,6 @@
     </nav>
 
     <div class="d-flex">
-        <!-- <div class="left-container bg-dark text-white p-3 sidebar"> -->
         <div class="left-container">
             <!-- <h4>Academics</h4> -->
             <div class="dashboard-text">
@@ -69,12 +66,7 @@
             </ul>
         </div>
 
-        <!-- <div class="right-container p-4 flex-grow-1"> -->
         <div class="right-container">
-            <!-- <div class="d-flex justify-content-between align-items-center">
-                <h2>Classrooms</h2>
-                <button class="btn btn-primary" onclick="openModal()">Create New</button>
-            </div> -->
             <div class="create-btn-container">
                 <button class="btn btn-create" onclick="openModal()">
                     <i class="bi bi-plus-circle me-1"></i> Create New
@@ -85,27 +77,12 @@
 
             <div class=" classroom-grid mt-4" id="classroomList">
                 @if ($classrooms->isEmpty())
-                    <!-- <p class="text-muted">No classrooms created yet.</p> -->
                     <div class="col-12 text-center p-5">
-                        <!-- <i class="bi bi-inbox fs-1 text-muted"></i> -->
                         <p class="text-muted mt-3">No classrooms created yet.</p>
                     </div>
                 @else
                     @foreach ($classrooms as $classroom)
-                        <!-- <div class="card p-3 mb-2">
-                            <h5>{{ $classroom->programme_name }}</h5>
-                            <p><strong>Class Code:</strong> {{ $classroom->class_code }}</p>
-                            <p><strong>Description:</strong> {{ $classroom->description ?: 'No description provided' }}</p>
-                            <p><strong>Joining Code:</strong> {{ $classroom->joining_code }}</p>
-                            <button class="btn btn-primary btn-sm" onclick="fetchStudents('{{ $classroom->class_code }}')">
-                                View Students
-                            </button>
-                        </div> -->
                         <div class="classroom-card">
-                            <!-- <div class="card-header">
-                                <h5 class="mb-0">{{ $classroom->programme_name }}</h5>
-                                <small>{{ $classroom->class_code }}</small>
-                            </div> -->
                             <div class="card-header">
                                 <div class="card-header-content">
                                     <h5 class="mb-0">{{ $classroom->programme_name }}</h5>
