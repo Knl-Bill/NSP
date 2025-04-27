@@ -20,6 +20,7 @@ use App\Http\Controllers\Logins\Security\GlhOutingController;
 use App\Http\Controllers\Logins\AdminLogin;
 use App\Http\Controllers\Logins\Security\LeaveController;
 use App\Http\Controllers\ClassroomFacultyController;
+use App\Http\Controllers\studentAcademics;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -103,6 +104,13 @@ Route::post('StudentLoginVerify',[StudentLogin::class,'StudentLoginVerify'])->na
 Route::get('StudentSession',[StudentLogin::class,'StudentSession'])->name('StudentSession');
 Route::get('StudentLogout',[StudentLogin::class,'StudentLogout'])->name('StudentLogout');
 Route::get('StudentProfile',[StudentLogin::class,'StudentProfile'])->name('StudentProfile');
+
+
+Route::get('StudentAcademicsLink', [studentAcademics::class,'StudentAcademicsLink'])->name('StudentAcademicsLink');
+Route::get('JoinedClassrooms/{rollno}', [studentAcademics::class, 'JoinedClassrooms'])->name('JoinedClassrooms');
+Route::post('JoinClassroom', [studentAcademics::class, 'JoinClassroom'])->name('JoinClassroom');
+Route::get('ClassroomDetails', [studentAcademics::class, 'ClassroomDetails'])->name('ClassroomDetails');
+Route::get('StudentAttendance', [studentAcademics::class, 'StudentAttendance'])->name('StudentAttendance');
 
 // Student Page's Outing Controller
 Route::get('/GetOutings',[OutingHistory::class,'GetOutings'])->name('GetOutings');

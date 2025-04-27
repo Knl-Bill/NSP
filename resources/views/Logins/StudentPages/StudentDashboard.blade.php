@@ -54,9 +54,6 @@
         <div class="user" style="font-size: 24px;">
         </div>
         <h1 class="heading font">DASHBOARD</h1>
-        <!-- <div class="status">
-            <a class="leave-status loadspin dash-btn" href="{{ route('leavereqshist') }}">Leave Requests History</a>
-        </div> -->
     </div>
 
     <div class="dash-container">
@@ -68,24 +65,9 @@
         @if(session('student') && session('student')->gender === 'Female')
             <button id="GLH" class="loadspin dash-btn">GLH Register</button>
         @endif
+        <button id="academics" class="loadspin dash-btn">Academics</button>
     </div>
 
-    <!-- <div class="dashboard container">
-        <div class="item">
-            <img src="assets/images/leave_1.webp" alt="Leave" height="250px">
-            <button id="Leave" class="loadspin">Leave Requests</button>
-        </div>
-        <div class="item">
-            <img src="assets/images/outing.png" alt="Outing" height="250px">
-            <button id="Outing" class="loadspin">Outing History</button>
-        </div>
-        @if(session('student') && session('student')->gender === 'Female')
-        <div class="item ">
-            <img src="assets/images/student.webp" alt="GLH Register" height="250px">
-            <button id="GLH" class="loadspin">GLH Register</button>
-        </div>
-        @endif
-    </div> -->
     <script>
         fetch('/StudentSession').then(response => response.text()).then(data => {
             document.querySelector('.user').innerHTML = '<span class="welcome">Welcome</span>, ' + data;
@@ -102,8 +84,18 @@
         document.getElementById('Outing').addEventListener('click', function() {
             window.location.href = '{{route('GetOutings')}}';
         });  
-        document.getElementById('GLH').addEventListener('click', function() {
-            window.location.href = '{{route('GetGLHOutings')}}';
+
+        const glhOutingButton = document.getElementById('GLH');
+
+        if(glhOutingButton) {
+            document.getElementById('GLH').addEventListener('click', function() {
+                window.location.href = '{{route('GetGLHOutings')}}';
+            });
+        }
+        
+        document.getElementById('academics').addEventListener('click', function() {
+            console.log("Clicked");
+            window.location.href = '{{route('JoinedClassrooms', ['rollno' => session('student')->rollno])}}';
         });
     </script>
     <script>

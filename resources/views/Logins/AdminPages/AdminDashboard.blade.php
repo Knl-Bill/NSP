@@ -96,7 +96,7 @@
             window.location.href = '{{route('AdminProfile')}}';
         });
 
-        document.getElementById('Academics').addEventListener('click', function() {
+        document.getElementById('AcademicsId').addEventListener('click', function() {
         window.location.href = '{{ route('FacultyClassroom') }}';
         });
 
