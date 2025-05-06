@@ -97,8 +97,13 @@
                                 <p><strong>Joining Code:</strong> <span class="badge bg-info">{{ $classroom->joining_code }}</span></p>
                             </div>
                             <div class="card-actions">
-                                <button class="btn btn-sm btn-outline-primary" onclick="fetchStudents('{{ $classroom->class_code }}')">
-                                    <i class="bi bi-people-fill me-1"></i> View Students
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <a href="{{ route('viewStudents', ['class_code' => $classroom->class_code]) }}" class="text-decoration-none text-dark">
+                                        <i class="bi bi-people-fill me-1"></i> View Students
+                                    </a>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" onclick="openAttendanceModal('{{ $classroom->class_code }}')">
+                                    <i class="bi bi-check-circle me-1"></i> Attendance
                                 </button>
                             </div>
                         </div>
@@ -273,6 +278,108 @@
             }
         });
         window.dispatchEvent(new Event("resize"));
+    </script>
+
+    <div class="modal fade" id="attendanceModal" tabindex="-1" aria-labelledby="attendanceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="attendanceModalLabel">Mark Attendance</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="attendanceForm" method="POST" onsubmit="submitAttendanceForm(event)">
+                @csrf
+                <div class="modal-body">
+                    <div id="attendanceList">
+                        <!-- Attendance checkboxes will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Attendance</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openAttendanceModal(classCode) {
+            // Attach the class code to the form for later use.
+            document.getElementById("attendanceForm").dataset.classCode = classCode;
+            // Display loading message
+            document.getElementById("attendanceList").innerHTML = "Loading...";
+            
+            // Fetch the students for the given classroom.
+            fetch(`/classroom/${classCode}/students`)
+                .then(response => response.json())
+                .then(students => {
+                    let html = "";
+                    if (students.length === 0) {
+                        html = "<p>No students found for attendance.</p>";
+                    } else {
+                        // Hidden input to pass the class code
+                        html += `<input type="hidden" name="class_code" value="${classCode}">`;
+                        html += `<table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Roll Number</th>
+                                            <th>Name</th>
+                                            <th>Present</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>`;
+                        students.forEach(student => {
+                            html += `<tr>
+                                    <td>${student.roll_number}</td>
+                                    <td>${student.name || ''}</td>
+                                    <td>
+                                        <input type="checkbox" name="attendance[${student.roll_number}]" value="1" checked>
+                                    </td>
+                                    </tr>`;
+                        });
+                        html += `</tbody></table>`;
+                    }
+                    document.getElementById("attendanceList").innerHTML = html;
+                    // Show the modal
+                    var attendanceModal = new bootstrap.Modal(document.getElementById('attendanceModal'));
+                    attendanceModal.show();
+                })
+                .catch(error => {
+                    console.error("Error fetching students:", error);
+                    document.getElementById("attendanceList").innerHTML = "<p>Error loading students.</p>";
+                });
+        }
+
+        function submitAttendanceForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const classCode = form.dataset.classCode;
+            const formData = new FormData(form);
+
+            fetch(`/classroom/${classCode}/attendance`, {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": formData.get('_token')
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if(result.success) {
+                    alert("Attendance submitted successfully!");
+                } else {
+                    alert("Error submitting attendance");
+                }
+                // Close the modal after submission.
+                var attendanceModal = bootstrap.Modal.getInstance(document.getElementById('attendanceModal'));
+                attendanceModal.hide();
+            })
+            .catch(error => {
+                console.error("Error submitting attendance:", error);
+                alert("Error submitting attendance");
+            });
+        }
     </script>
 
 </body>

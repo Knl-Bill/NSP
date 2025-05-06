@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Session;
+use DB;
 
 class ClassroomFacultyController extends Controller
 {
@@ -70,31 +71,21 @@ class ClassroomFacultyController extends Controller
 
         return redirect()->back()->with('success', nl2br(e($successMessage)));
     }
-
-
-    public function showStudents($id)
+    public function viewStudents($class_code)
     {
-        $classroom = Classroom::with('students')->findOrFail($id);
-        return view('faculty.students', compact('classroom'));
+        // Fetch students from the corresponding class table
+        $tableName = $class_code . '_students';
+        $students = DB::table($tableName)->get(); // Dynamic table access
+
+        return view('Logins.AdminPages.Classroom_students', compact('students', 'class_code'));
     }
 
-    public function getStudents($class_code)
+    public function deleteStudent($class_code, $roll_number)
     {
-        $table_name = strtolower($class_code) . '_students'; // Convert to lowercase
-        if (!Schema::hasTable($table_name)) {
-            return response()->json(['error' => 'Table does not exist'], 404);
-        }
-    
-        $students = DB::table($table_name)->select('roll_number')->get();
-        return response()->json($students);
-    }
+        $tableName = $class_code . '_students';
+        DB::table($tableName)->where('roll_number', $roll_number)->delete();
 
-    // Delete a student from the classroom
-    public function deleteStudent(Request $request, $class_code, $roll_number)
-    {
-        DB::table($class_code . '_students')->where('roll_number', $roll_number)->delete();
-        return response()->json(['success' => true]);
+        return redirect()->back()->with('success', 'Student removed successfully.');
     }
-
 }
 
