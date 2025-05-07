@@ -30,6 +30,7 @@
             <button id="AdminId" class="big-btn loadspin">Faculty Login</button>
             <button id="StudentId" class="big-btn loadspin">Student Login</button>
             <button id="SecurityId" class="big-btn loadspin">Security Login</button>
+            <button id="MessId" class="big-btn loadspin">Mess Management</button>
             <!-- <button id="GuestId" class="big-btn loadspin">Guest Entry</button> -->
         </div>
         <div class="box-2">
@@ -51,6 +52,12 @@
                     <h4>Security Login</h4>
                     <p>
                         Security personnel can log in to verify student exits, manage guest entries, and ensure campus security compliance. The system helps maintain a structured record of movements within the institution.
+                    </p>
+                </div>
+                <div class="guide-section">
+                    <h4>Mess Management</h4>
+                    <p>
+                        Mess administrators can log in to manage daily meal schedules, track student attendance, update menu items, and handle mess fee records. The system provides tools for efficient mess operations and student dining management.
                     </p>
                 </div>
                 <!-- <div class="guide-section">
@@ -88,6 +95,13 @@
                 window.location.href = "{{route('SecurityDashboard')}}";
             else
                 window.location.href = "{{route('SecurityLogin')}}";
+        });
+        document.getElementById('MessId').addEventListener('click', function() {
+            let user = "{{Session::has('user')}}";
+            if(user)
+                window.location.href = "{{route('MessDashboard')}}";
+            else
+                window.location.href = "{{route('MessLogin')}}";
         });
         window.addEventListener("resize", function () {
             let title = document.querySelector(".navbar-title");

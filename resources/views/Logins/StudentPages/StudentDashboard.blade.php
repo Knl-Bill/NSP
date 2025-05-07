@@ -61,6 +61,7 @@
             <a class="leave-status loadspin dash-btn" href="{{ route('leavereqshist') }}">Leave Requests History</a>
         </div>
         <button id="Leave" class="loadspin dash-btn">Leave Requests</button>
+        <button id="Mess" class="loadspin dash-btn">Mess Menu</button>
         <button id="Outing" class="loadspin dash-btn">Outing History</button>
         @if(session('student') && session('student')->gender === 'Female')
             <button id="GLH" class="loadspin dash-btn">GLH Register</button>
@@ -85,6 +86,10 @@
             window.location.href = '{{route('GetOutings')}}';
         });  
 
+        document.getElementById('Mess').addEventListener('click', function() {
+            window.location.href = '{{route("StudentMess")}}';
+        });
+
         const glhOutingButton = document.getElementById('GLH');
 
         if(glhOutingButton) {
@@ -94,7 +99,6 @@
         }
         
         document.getElementById('academics').addEventListener('click', function() {
-            console.log("Clicked");
             window.location.href = '{{route('JoinedClassrooms', ['rollno' => session('student')->rollno])}}';
         });
     </script>

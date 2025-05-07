@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Academics - Faculty</title>
     <link rel="icon" type="image/webp" href="{{ asset('assets/images/logo.webp') }}">
 
@@ -10,7 +11,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="{{ asset('assets/css/loading.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/FacultyClassroom.css') }}">
@@ -19,6 +21,16 @@
 <body>
     <div class="loading-overlay">
         <div class="spinner"></div>
+    </div>
+
+    <div id="attendanceSuccessAlert" class="alert alert-success alert-dismissible fade" role="alert" style="display:none;position:fixed;top:20px;right:20px;z-index:2000;">
+        Attendance submitted successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div id="editSuccessAlert" class="alert alert-success alert-dismissible fade" role="alert" style="display:none;position:fixed;top:20px;right:20px;z-index:2000;">
+        Classroom details updated successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
     <!-- Navbar -->
@@ -59,8 +71,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="bi bi-calendar-check me-2"></i>Attendance
+                    <a class="nav-link" href="#" onclick="openEditClassroomModal()">
+                        <i class="bi bi-pencil-square me-2"></i>Edit Classroom Details
                     </a>
                 </li>
             </ul>
@@ -305,6 +317,7 @@
 
     <script>
         function openAttendanceModal(classCode) {
+            console.log('openAttendanceModal called for class:', classCode); // Debug line
             // Attach the class code to the form for later use.
             document.getElementById("attendanceForm").dataset.classCode = classCode;
             // Display loading message
@@ -324,7 +337,6 @@
                                     <thead>
                                         <tr>
                                             <th>Roll Number</th>
-                                            <th>Name</th>
                                             <th>Present</th>
                                         </tr>
                                     </thead>
@@ -332,7 +344,6 @@
                         students.forEach(student => {
                             html += `<tr>
                                     <td>${student.roll_number}</td>
-                                    <td>${student.name || ''}</td>
                                     <td>
                                         <input type="checkbox" name="attendance[${student.roll_number}]" value="1" checked>
                                     </td>
@@ -359,27 +370,196 @@
 
             fetch(`/classroom/${classCode}/attendance`, {
                 method: "POST",
+                body: formData,
                 headers: {
-                    "X-CSRF-TOKEN": formData.get('_token')
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                 },
-                body: formData
+                credentials: 'same-origin'
             })
             .then(response => response.json())
             .then(result => {
                 if(result.success) {
-                    alert("Attendance submitted successfully!");
+                    // Show the Bootstrap success alert
+                    var alertBox = document.getElementById('attendanceSuccessAlert');
+                    alertBox.style.display = 'block';
+                    alertBox.classList.add('show');
+                    setTimeout(function() {
+                        alertBox.classList.remove('show');
+                        alertBox.style.display = 'none';
+                    }, 3000);
+                    var attendanceModal = bootstrap.Modal.getInstance(document.getElementById('attendanceModal'));
+                    attendanceModal.hide();
                 } else {
                     alert("Error submitting attendance");
                 }
-                // Close the modal after submission.
-                var attendanceModal = bootstrap.Modal.getInstance(document.getElementById('attendanceModal'));
-                attendanceModal.hide();
             })
             .catch(error => {
                 console.error("Error submitting attendance:", error);
                 alert("Error submitting attendance");
             });
         }
+    </script>
+
+    <!-- Edit Classroom Modal -->
+    <div class="modal fade" id="editClassroomModal" tabindex="-1" aria-labelledby="editClassroomModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Classroom Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editClassroomForm">
+                        <div class="mb-3">
+                            <label class="form-label">Select Classroom</label>
+                            <select class="form-select" id="editClassroomSelect" required>
+                                <option value="" disabled selected>Select Classroom</option>
+                                @foreach($classrooms as $classroom)
+                                    <option value="{{ $classroom->class_code }}">{{ $classroom->programme_name }} ({{ $classroom->class_code }})</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Select Student</label>
+                            <select class="form-select" id="editStudentSelect" required disabled>
+                                <option value="" disabled selected>Select Student</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">CT1 Marks</label>
+                            <input type="number" class="form-control" id="ct1Marks" name="CT1_marks">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">CT2 Marks</label>
+                            <input type="number" class="form-control" id="ct2Marks" name="CT2_marks">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Assignment Marks</label>
+                            <input type="number" class="form-control" id="assignmentMarks" name="assignment_marks">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">End-Sem Marks</label>
+                            <input type="number" class="form-control" id="endsemMarks" name="endsem_marks">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Attendance Column</label>
+                            <select class="form-select" id="attendanceColumnSelect" name="attendance_column" disabled>
+                                <option value="" disabled selected>Select Attendance Column</option>
+                            </select>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="attendancePresent" name="attendance_present">
+                                <label class="form-check-label" for="attendancePresent">Present</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    function openEditClassroomModal() {
+        var modal = new bootstrap.Modal(document.getElementById('editClassroomModal'));
+        modal.show();
+    }
+
+    document.getElementById('editClassroomSelect').addEventListener('change', function() {
+        const classCode = this.value;
+        const studentSelect = document.getElementById('editStudentSelect');
+        studentSelect.innerHTML = '<option value="" disabled selected>Loading...</option>';
+        studentSelect.disabled = true;
+        fetch(`/classroom/${classCode}/students`)
+            .then(response => response.json())
+            .then(students => {
+                let html = '<option value="" disabled selected>Select Student</option>';
+                students.forEach(student => {
+                    html += `<option value="${student.roll_number}">${student.roll_number}</option>`;
+                });
+                studentSelect.innerHTML = html;
+                studentSelect.disabled = false;
+            });
+        // Fetch attendance columns
+        const attendanceSelect = document.getElementById('attendanceColumnSelect');
+        attendanceSelect.innerHTML = '<option value="" disabled selected>Loading...</option>';
+        attendanceSelect.disabled = true;
+        fetch(`/classroom/${classCode}/columns`)
+            .then(response => response.json())
+            .then(columns => {
+                let html = '<option value="" disabled selected>Select Attendance Column</option>';
+                columns.forEach(col => {
+                    if(col.match(/^\d{8}_\d+$/)) html += `<option value="${col}">${col}</option>`;
+                });
+                attendanceSelect.innerHTML = html;
+                attendanceSelect.disabled = false;
+            });
+    });
+
+    document.getElementById('editStudentSelect').addEventListener('change', function() {
+        const classCode = document.getElementById('editClassroomSelect').value;
+        const rollNumber = this.value;
+        fetch(`/classroom/${classCode}/student/${rollNumber}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ct1Marks').value = data.CT1_marks || '';
+                document.getElementById('ct2Marks').value = data.CT2_marks || '';
+                document.getElementById('assignmentMarks').value = data.assignment_marks || '';
+                document.getElementById('endsemMarks').value = data.endsem_marks || '';
+            });
+    });
+
+    document.getElementById('attendanceColumnSelect').addEventListener('change', function() {
+        const classCode = document.getElementById('editClassroomSelect').value;
+        const rollNumber = document.getElementById('editStudentSelect').value;
+        const column = this.value;
+        fetch(`/classroom/${classCode}/student/${rollNumber}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('attendancePresent').checked = data[column] == 1;
+            });
+    });
+
+    document.getElementById('editClassroomForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const classCode = document.getElementById('editClassroomSelect').value;
+        const rollNumber = document.getElementById('editStudentSelect').value;
+        const ct1 = document.getElementById('ct1Marks').value;
+        const ct2 = document.getElementById('ct2Marks').value;
+        const assignment = document.getElementById('assignmentMarks').value;
+        const endsem = document.getElementById('endsemMarks').value;
+        const attendanceCol = document.getElementById('attendanceColumnSelect').value;
+        const attendancePresent = document.getElementById('attendancePresent').checked ? 1 : 0;
+        fetch(`/classroom/${classCode}/student/${rollNumber}/update`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                CT1_marks: ct1,
+                CT2_marks: ct2,
+                assignment_marks: assignment,
+                endsem_marks: endsem,
+                attendance_column: attendanceCol,
+                attendance_present: attendancePresent
+            })
+        })
+        .then(response => response.json())
+        .then(result => {
+            if(result.success) {
+                var modal = bootstrap.Modal.getInstance(document.getElementById('editClassroomModal'));
+                modal.hide();
+                var alertBox = document.getElementById('editSuccessAlert');
+                alertBox.style.display = 'block';
+                alertBox.classList.add('show');
+                setTimeout(function() {
+                    alertBox.classList.remove('show');
+                    alertBox.style.display = 'none';
+                }, 3000);
+            } else {
+                alert('Failed to update classroom details.');
+            }
+        });
+    });
     </script>
 
 </body>

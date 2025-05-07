@@ -87,5 +87,95 @@ class ClassroomFacultyController extends Controller
 
         return redirect()->back()->with('success', 'Student removed successfully.');
     }
+
+    public function markAttendance(Request $request, $class_code)
+    {
+        // Build the dynamic table name (using lowercase for consistency)
+        $tableName = strtolower($class_code) . '_students';
+
+        // Use today's date in Ymd format as the base for the column
+        $dateBase = date('Ymd');
+        $lecture = 1;
+        $columnName = $dateBase . '_' . $lecture;
+
+        // If a column with today's date already exists, increment the lecture number
+        while (Schema::hasColumn($tableName, $columnName)) {
+            $lecture++;
+            $columnName = $dateBase . '_' . $lecture;
+        }
+
+        // Create a new boolean column with default 1 (present)
+        Schema::table($tableName, function (Blueprint $table) use ($columnName) {
+            $table->boolean($columnName)->default(1);
+        });
+
+        // Retrieve the attendance array from the form
+        $attendance = $request->input('attendance', []);
+
+        // Build an array of roll numbers that are marked present
+        $presentRollNumbers = array_keys($attendance);
+
+        // Since the new column defaults to 1 (present), we only need to update students who are absent
+        if (!empty($presentRollNumbers)) {
+            DB::table($tableName)
+                ->whereNotIn('roll_number', $presentRollNumbers)
+                ->update([$columnName => 0]);
+        } else {
+            // If no attendance was marked, mark everyone absent
+            DB::table($tableName)
+                ->update([$columnName => 0]);
+        }
+
+        return response()->json(['success' => true]);
+    }
+
+    public function getAttendanceStudents($class_code)
+    {
+        // Build the students table name dynamically
+        $tableName = strtolower($class_code) . '_students';
+        
+        // Retrieve students with only their roll numbers
+        $students = DB::table($tableName)->select('roll_number')->get();
+        
+        return response()->json($students);
+    }
+
+    public function getAttendanceColumns($class_code)
+    {
+        $tableName = strtolower($class_code) . '_students';
+        if (!\Schema::hasTable($tableName)) {
+            return response()->json([]);
+        }
+        $columns = \Schema::getColumnListing($tableName);
+        $ignore = ['id', 'roll_number', 'CT1_marks', 'CT2_marks', 'assignment_marks', 'endsem_marks', 'created_at', 'updated_at'];
+        $attendanceColumns = array_values(array_filter($columns, function($col) use ($ignore) {
+            return !in_array($col, $ignore);
+        }));
+        return response()->json($attendanceColumns);
+    }
+
+    public function updateStudentDetails(Request $request, $class_code, $roll_number)
+    {
+        $tableName = strtolower($class_code) . '_students';
+        $data = [];
+        // Only update if value is not null
+        if ($request->has('CT1_marks')) $data['CT1_marks'] = $request->input('CT1_marks');
+        if ($request->has('CT2_marks')) $data['CT2_marks'] = $request->input('CT2_marks');
+        if ($request->has('assignment_marks')) $data['assignment_marks'] = $request->input('assignment_marks');
+        if ($request->has('endsem_marks')) $data['endsem_marks'] = $request->input('endsem_marks');
+        // Attendance column update
+        if ($request->has('attendance_column')) {
+            $attendanceCol = $request->input('attendance_column');
+            $attendanceVal = $request->input('attendance_present', 0);
+            $data[$attendanceCol] = $attendanceVal;
+        }
+        if (!empty($data)) {
+            $updated = \DB::table($tableName)
+                ->where('roll_number', $roll_number)
+                ->update($data);
+            return response()->json(['success' => true, 'updated' => $updated]);
+        }
+        return response()->json(['success' => false, 'error' => 'No data to update']);
+    }
 }
 

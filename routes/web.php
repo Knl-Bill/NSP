@@ -11,7 +11,6 @@ use App\Http\Controllers\Logins\LoginController;
 use App\Http\Controllers\Logins\Students\LeaveRequest;
 use App\Http\Controllers\Logins\SecurityLogin;
 use App\Http\Controllers\Logins\Security\SecurityController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\stud_profile;
 use App\Http\Controllers\Logins\StudentLogin;
 use App\Http\Controllers\Logins\Students\OutingHistory;
@@ -21,6 +20,9 @@ use App\Http\Controllers\Logins\AdminLogin;
 use App\Http\Controllers\Logins\Security\LeaveController;
 use App\Http\Controllers\ClassroomFacultyController;
 use App\Http\Controllers\studentAcademics;
+use App\Http\Controllers\Logins\Mess\ForgotPasswordMessController;
+use App\Http\Controllers\Logins\MessLogin;
+use App\Http\Controllers\GuestEntry;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,9 +42,12 @@ Route::get('/', function () {
 //Classroom- Faculty Side
 Route::get('FacultyClassroom', [ClassroomFacultyController::class, 'index'])->name('FacultyClassroom');
 Route::post('createClassroom', [ClassroomFacultyController::class, 'store'])->name('createClassroom');
-Route::get('/classroom/{class_code}/students', [ClassroomFacultyController::class, 'viewStudents'])->name('viewStudents');
+Route::get('/classroom/{class_code}/view-students', [ClassroomFacultyController::class, 'viewStudents'])->name('viewStudents');
 Route::delete('/classroom/{class_code}/students/{roll_number}', [ClassroomFacultyController::class, 'deleteStudent'])->name('deleteStudent');
-
+Route::get('/classroom/{class_code}/students', [ClassroomFacultyController::class, 'getAttendanceStudents']);
+Route::post('/classroom/{class_code}/attendance', [ClassroomFacultyController::class, 'markAttendance']);
+Route::get('/classroom/{class_code}/columns', [ClassroomFacultyController::class, 'getAttendanceColumns']);
+Route::post('/classroom/{class_code}/student/{roll_number}/update', [ClassroomFacultyController::class, 'updateStudentDetails']);
 
 //Reset Password for Security
 Route::get('reset_pass_sec', [ForgotPasswordSecurityController::class, 'showForgetPasswordForm'])->name('reset_pass_sec');
@@ -55,6 +60,18 @@ Route::get('reset_pass_admin', [ForgotPasswordAdminController::class, 'showForge
 Route::post('admin-forget-password', [ForgotPasswordAdminController::class, 'submitForgetPasswordForm'])->name('admin-forget.password.post'); 
 Route::get('admin-reset.password/{token}', [ForgotPasswordAdminController::class, 'showResetPasswordForm'])->name('admin-reset.password.get');
 Route::post('admin-reset.password', [ForgotPasswordAdminController::class, 'submitResetPasswordForm'])->name('admin-reset.password.post');
+
+//Reset Password for Mess
+Route::get('reset_pass_mess', [ForgotPasswordMessController::class, 'showForgetPasswordForm'])->name('reset_pass_mess');
+Route::post('mess-forget-password', [ForgotPasswordMessController::class, 'submitForgetPasswordForm'])->name('mess-forget.password.post'); 
+Route::get('mess-reset.password/{token}', [ForgotPasswordMessController::class, 'showResetPasswordForm'])->name('mess-reset.password.get');
+Route::post('mess-reset.password', [ForgotPasswordMessController::class, 'submitResetPasswordForm'])->name('mess-reset.password.post');
+
+// Guest Register
+Route::get('/GuestEntry', [GuestEntry::class, 'GuestEntry'])->name('GuestEntry');
+Route::get('/GuestRegister', [GuestEntry::class, 'GuestRegister'])->name('GuestRegister');
+Route::post('/InsertGuest', [GuestEntry::class, 'InsertGuest'])->name('InsertGuest');
+Route::post('/CloseGuestEntry/{id}', [GuestEntry::class, 'CloseGuestEntry'])->name('CloseGuestEntry');
 
 //Student SignUp
 Route::get('student_signup_request', [StudentController::class, 'submit_signup_request_view'])->name('student_signup_request');
@@ -74,6 +91,7 @@ Route::post('reset.password', [ForgotPasswordController::class, 'submitResetPass
 Route::get('/AdminLogin',[LoginController::class,'AdminLogin'])->name('AdminLogin');
 Route::get('/StudentLogin',[LoginController::class,'StudentLogin'])->name('StudentLogin');
 Route::get('/SecurityLogin',[LoginController::class,'SecurityLogin'])->name('SecurityLogin');
+Route::get('/MessLogin',[LoginController::class,'MessLogin'])->name('MessLogin');
 
 // SecurityLogin Controller
 Route::get('SecurityDashboard',[SecurityLogin::class,'SecurityDashboard'])->name('SecurityDashboard');
@@ -151,6 +169,29 @@ Route::get('/AdminDashboard',[AdminLogin::class,'AdminDashboard'])->name('AdminD
 Route::post('/AdminLoginVerify',[AdminLogin::class,'AdminLoginVerify'])->name('AdminLoginVerify');
 Route::get('/AdminSession',[AdminLogin::class,'AdminSession'])->name('AdminSession');
 Route::get('/AdminLogout',[AdminLogin::class,'AdminLogout'])->name('AdminLogout');
+
+// MessLogin Controller
+Route::get('/MessDashboard',[MessLogin::class,'MessDashboard'])->name('MessDashboard');
+Route::post('/MessLoginVerify',[MessLogin::class,'MessLoginVerify'])->name('MessLoginVerify');
+Route::get('/MessSession',[MessLogin::class,'MessSession'])->name('MessSession');
+Route::get('/MessLogout',[MessLogin::class,'MessLogout'])->name('MessLogout');
+Route::get('MessProfile',[MessLogin::class,'MessProfile'])->name('MessProfile');
+
+// Mess Management Routes
+Route::get('/MessDashboard', [App\Http\Controllers\Logins\Mess\MessController::class, 'dashboard'])->name('MessDashboard');
+Route::get('/MenuManagement', [App\Http\Controllers\Logins\Mess\MessController::class, 'menuManagement'])->name('menuManagement');
+Route::post('/SaveMenu', [App\Http\Controllers\Logins\Mess\MessController::class, 'saveMenu'])->name('saveMenu');
+Route::get('/MessReports', [App\Http\Controllers\Logins\Mess\MessController::class, 'messReports'])->name('messReports');
+
+// Mess Profile Routes
+Route::post('/mess_change-password', [App\Http\Controllers\Logins\Mess\MessProfile::class, 'changePasswordSave'])->name('postMessChangePassword');
+Route::post('/mess_change-phoneno', [App\Http\Controllers\Logins\Mess\MessProfile::class, 'changephoneno'])->name('postMessChangephoneno');
+Route::post('/mess_change-email', [App\Http\Controllers\Logins\Mess\MessProfile::class, 'changeemail'])->name('postMessChangeemail');
+
+// Student Mess Routes
+Route::get('/student/mess', [App\Http\Controllers\Logins\Student\StudentMessController::class, 'index'])->name('StudentMess');
+Route::post('/student/mess/book', [App\Http\Controllers\Logins\Student\StudentMessController::class, 'bookMeal'])->name('bookMeal');
+Route::get('/student/mess/menu', [App\Http\Controllers\Logins\Student\StudentMessController::class, 'getMenu']);
 
 // Route::post('/leavereqs', [LeavereqController::class, 'insert'])->name('leavereqs');
 // Route::get('/login', [StudentController::class,'login'])->name('login');

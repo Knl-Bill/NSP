@@ -20,6 +20,10 @@ class LoginController extends Controller
     {
         return view('Logins.Security');
     }
+    public function MessLogin()
+    {
+        return view('Logins.Mess');
+    }
     public function SecurityDashboard()
     {
         return view('Logins.SecurityPages.Landing');

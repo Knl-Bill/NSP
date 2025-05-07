@@ -109,7 +109,19 @@
                         <tbody>
                             @foreach($attendance as $session => $status)
                                 <tr>
-                                    <td>{{ $session }}</td>
+                                    <td>
+                                        @php
+                                            $parts = explode('_', $session);
+                                            if(count($parts) == 2) {
+                                                $date = $parts[0];
+                                                $lecture = $parts[1];
+                                                $formattedDate = substr($date, 0, 4) . '-' . substr($date, 4, 2) . '-' . substr($date, 6, 2);
+                                                echo $formattedDate . ' - Lecture ' . $lecture;
+                                            } else {
+                                                echo $session;
+                                            }
+                                        @endphp
+                                    </td>
                                     <td>
                                         @if($status == 1)
                                             <span class="text-success">Present</span>
