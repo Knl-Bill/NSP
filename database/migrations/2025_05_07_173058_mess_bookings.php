@@ -13,13 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mess_bookings', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->date('meal_date');
-            $table->string('student_rollno');
-            $table->string('meal_type');
-        });
+        //
     }
 
     /**
@@ -29,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mess_bookings');
+        //
     }
 };
