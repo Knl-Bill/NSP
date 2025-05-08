@@ -3,8 +3,7 @@ document.getElementById('logout').addEventListener('click',function() {
             fetch('/StudentLogout').then(response => {
                 if(response.ok)
                 {
-                    // If logout Successful, redirect to home page
-                    window.location.reload();
+                    // If logout successful, redirect to home page
                     window.location.href = '/';
                 }
                 else{

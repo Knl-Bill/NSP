@@ -42,6 +42,7 @@ Route::get('/', function () {
 //Classroom- Faculty Side
 Route::get('FacultyClassroom', [ClassroomFacultyController::class, 'index'])->name('FacultyClassroom');
 Route::post('createClassroom', [ClassroomFacultyController::class, 'store'])->name('createClassroom');
+Route::delete('/classroom/{class_code}', [ClassroomFacultyController::class, 'destroy'])->name('deleteClassroom'); 
 Route::get('/classroom/{class_code}/view-students', [ClassroomFacultyController::class, 'viewStudents'])->name('viewStudents');
 Route::delete('/classroom/{class_code}/students/{roll_number}', [ClassroomFacultyController::class, 'deleteStudent'])->name('deleteStudent');
 Route::get('/classroom/{class_code}/students', [ClassroomFacultyController::class, 'getAttendanceStudents']);

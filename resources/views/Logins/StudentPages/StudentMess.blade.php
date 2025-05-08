@@ -178,7 +178,7 @@
     </div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid custom-navbar">
-            <img class="logo" src="assets/images/logo.webp" alt="logo">
+            <img class="logo" src="{{ asset('assets/images/logo.webp') }}" alt="logo">
             <div class="navbar-title-container">
                 <span class="navbar-title">NIT Puducherry Student Portal</span>
             </div>
