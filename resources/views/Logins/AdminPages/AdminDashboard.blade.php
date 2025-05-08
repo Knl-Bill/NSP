@@ -39,7 +39,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav custom-nav-items">
               <li class="nav-item">
-                <a class="nav-link profile-btn loadspin" id="profile" href='{{route('AdminProfile')}}'><i class="bi bi-person-fill custom-icon"></i></a>
+                <a class="nav-link profile-btn loadspin" id="profile" href='/AdminProfile'><i class="bi bi-person-fill custom-icon"></i></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link logout-btn loadspin" id="logout">Logout</a>
@@ -56,50 +56,33 @@
             <span class="text-danger">{{ Session::get('message')  }}</span>
         @endif
         <h1 class="heading font">DASHBOARD</h1>
-        <!-- <div class="status">
-            <a class="leave-status loadspin dash-btn" href="{{ route('leavereqshist_admin') }}">See Leave History</a>
-        </div> -->
     </div>
 
     <div class="dash-container">
         <div class="status">
-            <a class="leave-status loadspin dash-btn" href="{{ route('leavereqshist_admin') }}">See Leave History</a>
+            <a class="leave-status loadspin dash-btn" href="/leavereqshist_admin">See Leave History</a>
         </div>
         <button id="LeaveId" class="loadspin dash-btn">Leave Requests <span class="leave_count">{{$count}}</span> </button>
         <button id="AcademicsId" class="loadspin dash-btn">Academic Details</button>
     </div>
 
-    <!-- <div class="dashboard container">
-        <div class="item">
-            <img src="assets/images/leave_1.webp" alt="Leave" height="250px">
-            <button id="LeaveId" class="loadspin">Leave Requests <span class="leave_count">{{$count}}</span> </button>
-        </div>
-        <div class="item">
-            <img src="assets/images/faculty.webp" alt="Academics" height="250px">
-            <button id="Academics">Academic Details</button>
-        </div>
-    </div> -->
     <script>
-        
         fetch('/AdminSession').then(response => response.text()).then(data => {
                 // Update the user name in the HTML
                 document.querySelector('.user').innerHTML = '<span class="welcome">Welcome</span>, ' + data;
         });
 
-        
-
         document.getElementById('LeaveId').addEventListener('click', function() {
-            window.location.href = '{{route('LeaveRequests')}}';
+            window.location.href = '/LeaveRequests';
         });
 
         document.getElementById('profile').addEventListener('click', function() {
-            window.location.href = '{{route('AdminProfile')}}';
+            window.location.href = '/AdminProfile';
         });
 
         document.getElementById('AcademicsId').addEventListener('click', function() {
-        window.location.href = '{{ route('FacultyClassroom') }}';
+            window.location.href = '/FacultyClassroom';
         });
-
     </script>
     <script>
         window.addEventListener("resize", function () {

@@ -39,10 +39,10 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav custom-nav-items">
               <li class="nav-item">
-                <a class="nav-link home-btn loadspin" href='{{route('SecurityDashboard')}}'><i class="bi bi-house-door-fill custom-icon"></i></a>
+                <a class="nav-link home-btn loadspin" href='/SecurityDashboard'><i class="bi bi-house-door-fill custom-icon"></i></a>
               </li>
               <!--<li class="nav-item">-->
-              <!--  <a class="nav-link profile-btn" href='{{route('SecurityProfile')}}'><i class="bi bi-person-fill custom-icon"></i></a>-->
+              <!--  <a class="nav-link profile-btn" href='/SecurityProfile'><i class="bi bi-person-fill custom-icon"></i></a>-->
               <!--</li>-->
               <li class="nav-item">
                 <a class="nav-link logout-btn loadspin" id="logout">Logout</a>
@@ -188,21 +188,20 @@
             });
         });
     </script>
-        <script>
+    <script>
         fetch('/SecuritySession').then(response => response.text()).then(data => {
                 // Update the user name in the HTML
                 document.querySelector('.user').innerHTML = '<span class="welcome">Welcome</span>, ' + data;
-            });
-        
+        });
 
         document.getElementById('LeaveId').addEventListener('click', function() {
-            window.location.href = '{{route('LeaveText')}}';
+            window.location.href = '/LeaveText';
         });
         document.getElementById('OutingId').addEventListener('click', function() {
-            window.location.href = '{{route('OutingText')}}';
+            window.location.href = '/OutingText';
         });
         document.getElementById('profile').addEventListener('click', function() {
-            window.location.href = '{{route('SecurityProfile')}}';
+            window.location.href = '/SecurityProfile';
         });
 
         window.addEventListener("resize", function () {

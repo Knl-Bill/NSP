@@ -6,7 +6,7 @@
     <title>Outing History</title>
     <link rel="icon" type="image/webp" href="assets/images/logo.webp">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="assets/css/OutingHistory.css"> -->
     <link rel="stylesheet" href="assets/css/StudentNewOutingHistory.css">
@@ -39,10 +39,10 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav custom-nav-items">
               <li class="nav-item">
-                <a class="nav-link home-btn loadspin" id="home" href='{{route('StudentDashboard')}}'><i class="bi bi-house-door-fill custom-icon"></i></a>
+                <a class="nav-link home-btn loadspin" id="home" href='/StudentDashboard'><i class="bi bi-house-door-fill custom-icon"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link profile-btn loadspin" id="profile" href='{{route('StudentProfile')}}'><i class="bi bi-person-fill custom-icon"></i></a>
+                <a class="nav-link profile-btn loadspin" id="profile" href='/StudentProfile'><i class="bi bi-person-fill custom-icon"></i></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link logout-btn loadspin" id="logout">Logout</a>

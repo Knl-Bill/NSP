@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academics - Student</title>
-    <link rel="icon" type="image/webp" href="{{ asset('assets/images/logo.webp') }}">
-
-    <link rel="icon" type="image/webp" href="{{ asset('assets/images/logo.webp') }}">
+    <link rel="icon" type="image/webp" href="/assets/images/logo.webp">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="{{ asset('assets/css/loading.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/Student_Classroom.css') }}">
+    <link rel="stylesheet" href="/assets/css/loading.css">
+    <link rel="stylesheet" href="/assets/css/Student_Classroom.css">
     <style>
         .content-section {
             display: none;
@@ -49,7 +47,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid custom-navbar">
-            <img class="logo" src="{{ asset('assets/images/logo.webp') }}" alt="logo">
+            <img class="logo" src="/assets/images/logo.webp" alt="logo">
             <div class="navbar-title-container">
                 <span class="navbar-title">NIT Puducherry Student Portal</span>
             </div>
@@ -59,7 +57,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav custom-nav-items">
                     <li class="nav-item">
-                        <a class="nav-link profile-btn" id="profile" href="{{ route('StudentProfile') }}"><i class="bi bi-person-fill"></i></a>
+                        <a class="nav-link profile-btn" id="profile" href="/StudentProfile"><i class="bi bi-person-fill"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link logout-btn" id="logout">Logout</a>
@@ -130,7 +128,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('JoinClassroom') }}" method="POST">
+                    <form action="/JoinClassroom" method="POST">
                         @csrf
                         <input type="hidden" name="rollno" value="{{ session('student')->rollno }}">
                         <div class="mb-3">
@@ -215,12 +213,12 @@
     <script>
         function redirectToClassroom(classCode) {
             const rollno = "{{ session('student')->rollno }}";
-            window.location.href = "{{ route('ClassroomDetails') }}" + "?rollno=" + rollno + "&class_code=" + classCode;
+            window.location.href = "/ClassroomDetails" + "?rollno=" + rollno + "&class_code=" + classCode;
         }  
         
         function redirectToAttendance() {
             const rollno = "{{ session('student')->rollno }}";
-            window.location.href = "{{ route('StudentAttendance') }}" + "?rollno=" + rollno;
+            window.location.href = "/StudentAttendance" + "?rollno=" + rollno;
         }
     </script>
 
@@ -231,8 +229,8 @@
         }
     </script>
 
-    <script src="{{ asset('assets/js/FacultyLogout.js') }}"></script>
-    <script src="{{ asset('assets/js/loading.js') }}"></script>
+    <script src="/assets/js/FacultyLogout.js"></script>
+    <script src="/assets/js/loading.js"></script>
 
     <script>
         function fetchStudents(classCode) {

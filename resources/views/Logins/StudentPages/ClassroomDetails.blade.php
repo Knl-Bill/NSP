@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classroom Details</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/Student_Classdetails.css') }}">
+    <link rel="stylesheet" href="/assets/css/Student_Classdetails.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
     <script>
@@ -23,7 +23,7 @@
     <!-- Navigation Bar (copied from StudentClassroom.blade.php) -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid custom-navbar">
-            <img class="logo" src="{{ asset('assets/images/logo.webp') }}" alt="logo">
+            <img class="logo" src="/assets/images/logo.webp" alt="logo">
             <div class="navbar-title-container">
                 <span class="navbar-title">NIT Puducherry Student Portal</span>
             </div>
@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav custom-nav-items">
                     <li class="nav-item">
-                        <a class="nav-link profile-btn" id="profile" href="{{ route('StudentProfile') }}">
+                        <a class="nav-link profile-btn" id="profile" href="/StudentProfile">
                             <i class="bi bi-person-fill"></i>
                         </a>
                     </li>
@@ -138,7 +138,7 @@
                     <p>No attendance data available.</p>
                 @endif
 
-                <a href="{{ url()->previous() }}" class="btn btn-secondary mt-3">Back</a>
+                <a href="javascript:history.back()" class="btn btn-secondary mt-3">Back</a>
             </div>
         </div>
     </div>

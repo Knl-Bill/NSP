@@ -192,7 +192,7 @@ Route::post('/mess_change-email', [App\Http\Controllers\Logins\Mess\MessProfile:
 // Student Mess Routes
 Route::get('/student/mess', [App\Http\Controllers\Logins\Student\StudentMessController::class, 'index'])->name('StudentMess');
 Route::post('/student/mess/book', [App\Http\Controllers\Logins\Student\StudentMessController::class, 'bookMeal'])->name('bookMeal');
-Route::get('/student/mess/menu', [App\Http\Controllers\Logins\Student\StudentMessController::class, 'getMenu']);
+Route::get('/student/mess/menu', [App\Http\Conrollers\Logins\Student\StudentMessController::class, 'getMenu']);
 
 // Route::post('/leavereqs', [LeavereqController::class, 'insert'])->name('leavereqs');
 // Route::get('/login', [StudentController::class,'login'])->name('login');

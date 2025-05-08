@@ -178,7 +178,7 @@
     </div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid custom-navbar">
-            <img class="logo" src="{{ asset('assets/images/logo.webp') }}" alt="logo">
+            <img class="logo" src="/assets/images/logo.webp" alt="logo">
             <div class="navbar-title-container">
                 <span class="navbar-title">NIT Puducherry Student Portal</span>
             </div>
@@ -188,7 +188,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav custom-nav-items">
                     <li class="nav-item">
-                        <a class="nav-link home-btn loadspin" href='{{route("StudentDashboard")}}'><i class="bi bi-house-door-fill"></i></a>
+                        <a class="nav-link home-btn loadspin" href='/StudentDashboard'><i class="bi bi-house-door-fill"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link logout-btn loadspin" id="logout">Logout</a>
@@ -231,7 +231,7 @@
                 </div>
                 @if($bookingOpen)
                     @if($canBook)
-                        <form action="{{ route('bookMeal') }}" method="POST" class="mt-3">
+                        <form action="/bookMeal" method="POST" class="mt-3">
                             @csrf
                             <input type="hidden" name="meal" value="{{ $nextMeal }}">
                             <button type="submit" class="btn btn-light">Book {{ ucfirst($nextMeal) }}</button>

@@ -41,10 +41,10 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav custom-nav-items">
               <li class="nav-item">
-                <a class="nav-link home-btn loadspin" href='{{route('AdminDashboard')}}'><i class="bi bi-house-door-fill custom-icon"></i></a>
+                <a class="nav-link home-btn loadspin" href='/AdminDashboard'><i class="bi bi-house-door-fill custom-icon"></i></a>
               </li>
               <!--<li class="nav-item">-->
-              <!--  <a class="nav-link profile-btn loadspin" href='{{route('AdminProfile')}}'><i class="bi bi-person-fill custom-icon"></i></a>-->
+              <!--  <a class="nav-link profile-btn loadspin" href='/AdminProfile'><i class="bi bi-person-fill custom-icon"></i></a>-->
               <!--</li>-->
               <li class="nav-item">
                 <a class="nav-link logout-btn loadspin" id="logout">Logout</a>

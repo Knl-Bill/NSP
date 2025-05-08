@@ -63,19 +63,19 @@
 
     <script>
         document.getElementById('menuManagement').addEventListener('click', function() {
-            window.location.href = '{{route("menuManagement")}}';
+            window.location.href = '/MenuManagement';
         });
 
         document.getElementById('messReports').addEventListener('click', function() {
-            window.location.href = '{{route("messReports")}}';
+            window.location.href = '/MessReports';
         });
 
         document.getElementById('profile').addEventListener('click', function() {
-            window.location.href = '{{route("MessProfile")}}';
+            window.location.href = '/MessProfile';
         });
 
         document.getElementById('logout').addEventListener('click', function() {
-            window.location.href = '{{route("MessLogout")}}';
+            window.location.href = '/MessLogout';
         });
 
         fetch('/MessSession').then(response => response.text()).then(data => {

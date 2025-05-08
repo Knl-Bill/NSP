@@ -53,7 +53,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <a href="{{ route('reset_pass_sec') }}" class="font loadspin" style="font-size:14px;text-decoration:none;">Forgot Password?</a>
+                    <a href="/reset_pass_sec" class="font loadspin" style="font-size:14px;text-decoration:none;">Forgot Password?</a>
                 </div>
                 <div class="form-group button">
                     <input class="submit-btn loadspin" type="submit" id="submit" value="Login">
@@ -64,7 +64,7 @@
     <script>
         let user = "{{Session::has('security')}}";
         if(user)
-            window.location.href = "{{route('SecurityDashboard')}}";
+            window.location.href = "/SecurityDashboard";
         const passwordField = document.getElementById("password");
         const togglePassword = document.querySelector(".password-toggle-icon i");
 

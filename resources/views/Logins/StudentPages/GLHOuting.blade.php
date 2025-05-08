@@ -39,10 +39,10 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav custom-nav-items">
               <li class="nav-item">
-                <a class="nav-link home-btn loadspin" id="home" href='{{route('StudentDashboard')}}'><i class="bi bi-house-door-fill custom-icon"></i></a>
+                <a class="nav-link home-btn loadspin" id="home" href='/StudentDashboard'><i class="bi bi-house-door-fill custom-icon"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link profile-btn loadspin" id="profile" href='{{route('StudentProfile')}}'><i class="bi bi-person-fill custom-icon"></i></a>
+                <a class="nav-link profile-btn loadspin" id="profile" href='/StudentProfile'><i class="bi bi-person-fill custom-icon"></i></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link logout-btn loadspin" id="logout">Logout</a>

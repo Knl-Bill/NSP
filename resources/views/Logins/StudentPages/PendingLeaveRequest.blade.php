@@ -203,7 +203,7 @@
             @if ($stud->image!=NULL)
               <div>
                     <button class="view-photo-btn" onclick="togglePhoto({{$loop->iteration}})">View Email</button>
-                    <img src="public/storage/{{$stud->image}}" alt="email screenshot" class="photo" id="photo-{{$loop->iteration}}">
+                    <img src="/storage/{{$stud->image}}" alt="email screenshot" class="photo" id="photo-{{$loop->iteration}}">
               </div> 
             @endif
             </div>

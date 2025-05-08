@@ -38,10 +38,10 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav custom-nav-items">
               <li class="nav-item">
-                <a class="nav-link home-btn loadspin" href='{{route('StudentDashboard')}}'><i class="bi bi-house-door-fill custom-icon"></i></a>
+                <a class="nav-link home-btn loadspin" href='/StudentDashboard'><i class="bi bi-house-door-fill custom-icon"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link profile-btn loadspin" href='{{route('StudentProfile')}}'><i class="bi bi-person-fill custom-icon"></i></a>
+                <a class="nav-link profile-btn loadspin" href='/StudentProfile'><i class="bi bi-person-fill custom-icon"></i></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link logout-btn loadspin" id="logout">Logout</a>
@@ -169,7 +169,7 @@
 </script>
 
     <script>
-        fetch('DisabledDetails').then(response => response.json()).then(data => {
+        fetch('/DisabledDetails').then(response => response.json()).then(data => {
             document.getElementById('rollno').value = data.rollno;
             document.getElementById('rollno').placeholder = data.rollno;
 
@@ -181,11 +181,11 @@
         });
 
         document.getElementById('status').addEventListener('click', function() {
-            window.location.href = '{{route('pendingleavereqshist')}}'
+            window.location.href = '/pendingleavereqshist';
         });
 
         document.getElementById('leavehistory').addEventListener('click', function() {
-            window.location.href = '{{route('GetLeaves')}}'
+            window.location.href = '/GetLeaves';
         });
     </script>
     <script src="assets/js/StudentLogout.js"></script>
@@ -224,4 +224,3 @@
 </body>
 </html>
 
- 

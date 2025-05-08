@@ -41,7 +41,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav custom-nav-items">
               <li class="nav-item">
-                <a class="nav-link profile-btn loadspin" id="profile" href='{{route('StudentProfile')}}'><i class="bi bi-person-fill custom-icon"></i></a>
+                <a class="nav-link profile-btn loadspin" id="profile" href='/StudentProfile'><i class="bi bi-person-fill custom-icon"></i></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link logout-btn" id="logout">Logout</a>
@@ -58,7 +58,7 @@
 
     <div class="dash-container">
         <div class="status">
-            <a class="leave-status loadspin dash-btn" href="{{ route('leavereqshist') }}">Leave Requests History</a>
+            <a class="leave-status loadspin dash-btn" href="/leavereqshist">Leave Requests History</a>
         </div>
         <button id="Leave" class="loadspin dash-btn">Leave Requests</button>
         <button id="Mess" class="loadspin dash-btn">Mess Menu</button>
@@ -75,31 +75,31 @@
         });
 
         document.getElementById('Leave').addEventListener('click', function() {
-            window.location.href = '{{route('LeaveRequestPage')}}';
+            window.location.href = '/LeaveRequestPage';
         });
 
         document.getElementById('profile').addEventListener('click', function() {
-            window.location.href = '{{route('StudentProfile')}}';
+            window.location.href = '/StudentProfile';
         });
         
         document.getElementById('Outing').addEventListener('click', function() {
-            window.location.href = '{{route('GetOutings')}}';
+            window.location.href = '/GetOutings';
         });  
 
         document.getElementById('Mess').addEventListener('click', function() {
-            window.location.href = '{{route("StudentMess")}}';
+            window.location.href = '/student/mess';
         });
 
         const glhOutingButton = document.getElementById('GLH');
 
         if(glhOutingButton) {
             document.getElementById('GLH').addEventListener('click', function() {
-                window.location.href = '{{route('GetGLHOutings')}}';
+                window.location.href = '/GetGLHOutings';
             });
         }
         
         document.getElementById('academics').addEventListener('click', function() {
-            window.location.href = '{{route('JoinedClassrooms', ['rollno' => session('student')->rollno])}}';
+            window.location.href = '/JoinedClassrooms/' + '{{session('student')->rollno}}';
         });
     </script>
     <script>
